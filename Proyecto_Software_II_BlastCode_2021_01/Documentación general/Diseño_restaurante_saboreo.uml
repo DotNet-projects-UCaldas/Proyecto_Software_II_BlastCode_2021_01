@@ -254,16 +254,8 @@
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:ATTR name="#OwnedElements" type="integer">2</XPD:ATTR>
-<XPD:OBJ name="OwnedElements[0]" type="UMLActor" guid="+fFxAFzFBUWcj3EHDtlAVgAA">
-<XPD:ATTR name="Name" type="string">Repartidor</XPD:ATTR>
-<XPD:REF name="Namespace">LetOSHhVkkObnKxcZTxB1QAA</XPD:REF>
-<XPD:ATTR name="#Views" type="integer">3</XPD:ATTR>
-<XPD:REF name="Views[0]">DDzM1i+FBEaXIKhyoI6M+gAA</XPD:REF>
-<XPD:REF name="Views[1]">DpNHpYL8TUuNin4tO0CzQgAA</XPD:REF>
-<XPD:REF name="Views[2]">itAJUzPcfU2sYQjWwVwZSQAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedElements[1]" type="UMLAssociation" guid="q87nmBcanEKs+gFAm4T9igAA">
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLAssociation" guid="q87nmBcanEKs+gFAm4T9igAA">
 <XPD:REF name="Namespace">LetOSHhVkkObnKxcZTxB1QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">N2cocfREoEOsfTY7qdF9TQAA</XPD:REF>
@@ -276,8 +268,8 @@
 <XPD:REF name="Participant">FV0n1yCM10OulmnxapV/MwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">yorXGxXmN0KmpExyHr8PrAAA</XPD:REF>
-<XPD:REF name="Views[1]">8cZtcgRyhECs4RRun7LL/wAA</XPD:REF>
-<XPD:REF name="Views[2]">kZu0xduxjUumO6Yd+Qr5FAAA</XPD:REF>
+<XPD:REF name="Views[1]">kZu0xduxjUumO6Yd+Qr5FAAA</XPD:REF>
+<XPD:REF name="Views[2]">8cZtcgRyhECs4RRun7LL/wAA</XPD:REF>
 <XPD:REF name="Views[3]">WK6kj8UURUOC+7KPD3Dv1wAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="VpvhSOFJdkiN8SR7k4X9fQAA">
@@ -285,8 +277,8 @@
 <XPD:REF name="Participant">/3Itfw0xwU2+DFiBHEMfPAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">I8wcMAfpqUGAqReozJZ9uQAA</XPD:REF>
-<XPD:REF name="Views[1]">ciodtgO9SE2Tz8JFId2/JAAA</XPD:REF>
-<XPD:REF name="Views[2]">zihchbmKxUWurXJT+O7EHAAA</XPD:REF>
+<XPD:REF name="Views[1]">zihchbmKxUWurXJT+O7EHAAA</XPD:REF>
+<XPD:REF name="Views[2]">ciodtgO9SE2Tz8JFId2/JAAA</XPD:REF>
 <XPD:REF name="Views[3]">4tC549RJPkGnPYDZuQSH7AAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
@@ -294,7 +286,7 @@
 <XPD:OBJ name="OwnedElements[1]" type="UMLPackage" guid="Lp4nNNxT4kyBcy9xAmbYlAAA">
 <XPD:ATTR name="Name" type="string">Actores</XPD:ATTR>
 <XPD:REF name="Namespace">4g9aKRggvEaAa6O22+CGtAAA</XPD:REF>
-<XPD:ATTR name="#OwnedElements" type="integer">3</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">4</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLActor" guid="FV0n1yCM10OulmnxapV/MwAA">
 <XPD:ATTR name="Name" type="string">Administrador restaurate</XPD:ATTR>
 <XPD:REF name="Namespace">Lp4nNNxT4kyBcy9xAmbYlAAA</XPD:REF>
@@ -321,6 +313,14 @@
 <XPD:REF name="Views[1]">955EW9DopkWnsD2JbHGX8wAA</XPD:REF>
 <XPD:REF name="Views[2]">RhAuJljSpUmKuZIzMkoQgAAA</XPD:REF>
 </XPD:OBJ>
+<XPD:OBJ name="OwnedElements[3]" type="UMLActor" guid="+fFxAFzFBUWcj3EHDtlAVgAA">
+<XPD:ATTR name="Name" type="string">Repartidor</XPD:ATTR>
+<XPD:REF name="Namespace">Lp4nNNxT4kyBcy9xAmbYlAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">3</XPD:ATTR>
+<XPD:REF name="Views[0]">DDzM1i+FBEaXIKhyoI6M+gAA</XPD:REF>
+<XPD:REF name="Views[1]">DpNHpYL8TUuNin4tO0CzQgAA</XPD:REF>
+<XPD:REF name="Views[2]">itAJUzPcfU2sYQjWwVwZSQAA</XPD:REF>
+</XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[2]" type="UMLPackage" guid="9g/itPzVG0m6Z6OZYbkhcQAA">
 <XPD:ATTR name="Name" type="string">Casos de uso</XPD:ATTR>
@@ -344,7 +344,7 @@
 <XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">analysisModel</XPD:ATTR>
 <XPD:REF name="Namespace">jOacd7V83UCu1oOfiRszrgAA</XPD:REF>
-<XPD:ATTR name="#OwnedElements" type="integer">8</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">7</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLPackage" guid="lHUwGwmob0uOsbGRedXi0QAA">
 <XPD:ATTR name="Name" type="string">Diagramas de clase</XPD:ATTR>
 <XPD:REF name="Namespace">DHHniYtMG02Of6nG049g/AAA</XPD:REF>
@@ -398,11 +398,6 @@
 <XPD:OBJ name="OwnedElements[1]" type="UMLPackage" guid="ODeqWdXveU6/CyrM/+WsVwAA">
 <XPD:ATTR name="Name" type="string">Diagramas de secuencia</XPD:ATTR>
 <XPD:REF name="Namespace">DHHniYtMG02Of6nG049g/AAA</XPD:REF>
-<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="OwnedElements[0]" type="UMLPackage" guid="4g3Is7IwT0KFPNbTJmsNTQAA">
-<XPD:ATTR name="Name" type="string">Clases diagrama de secuencia</XPD:ATTR>
-<XPD:REF name="Namespace">ODeqWdXveU6/CyrM/+WsVwAA</XPD:REF>
-</XPD:OBJ>
 <XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedCollaborationInstanceSets[0]" type="UMLCollaborationInstanceSet" guid="AikLQjsQ40eHLHCzH6MTIQAA">
 <XPD:ATTR name="Name" type="string">DS_CU001_Repartir_propina</XPD:ATTR>
@@ -471,6 +466,49 @@
 <XPD:OBJ name="OwnedElements[4]" type="UMLPackage" guid="IZ0z6HryX0yD6A2p6EkE4QAA">
 <XPD:ATTR name="Name" type="string">Clases entidad</XPD:ATTR>
 <XPD:REF name="Namespace">DHHniYtMG02Of6nG049g/AAA</XPD:REF>
+<XPD:ATTR name="#OwnedElements" type="integer">7</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLClass" guid="oXjZgw2FKUqjFxR0aqGDoAAA">
+<XPD:ATTR name="Name" type="string">Categoria</XPD:ATTR>
+<XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
+<XPD:ATTR name="StereotypeName" type="string">entity</XPD:ATTR>
+<XPD:REF name="Namespace">IZ0z6HryX0yD6A2p6EkE4QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[1]" type="UMLClass" guid="Xto+omnh0UaLFaPbdc03MwAA">
+<XPD:ATTR name="Name" type="string">Mesero</XPD:ATTR>
+<XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
+<XPD:ATTR name="StereotypeName" type="string">entity</XPD:ATTR>
+<XPD:REF name="Namespace">IZ0z6HryX0yD6A2p6EkE4QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[2]" type="UMLClass" guid="gRqsut3YFU2hW1ezbCyCYQAA">
+<XPD:ATTR name="Name" type="string">Cliente</XPD:ATTR>
+<XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
+<XPD:ATTR name="StereotypeName" type="string">entity</XPD:ATTR>
+<XPD:REF name="Namespace">IZ0z6HryX0yD6A2p6EkE4QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[3]" type="UMLClass" guid="QdwUeU5HDkOYaqBjhZ/bkQAA">
+<XPD:ATTR name="Name" type="string">Subcategoria</XPD:ATTR>
+<XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
+<XPD:ATTR name="StereotypeName" type="string">entity</XPD:ATTR>
+<XPD:REF name="Namespace">IZ0z6HryX0yD6A2p6EkE4QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[4]" type="UMLClass" guid="q8yNRG/FO0GQuzdlMsa0swAA">
+<XPD:ATTR name="Name" type="string">Plato</XPD:ATTR>
+<XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
+<XPD:ATTR name="StereotypeName" type="string">entity</XPD:ATTR>
+<XPD:REF name="Namespace">IZ0z6HryX0yD6A2p6EkE4QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[5]" type="UMLClass" guid="io27hs7t80iQfWlp5i+ZQAAA">
+<XPD:ATTR name="Name" type="string">Venta</XPD:ATTR>
+<XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
+<XPD:ATTR name="StereotypeName" type="string">entity</XPD:ATTR>
+<XPD:REF name="Namespace">IZ0z6HryX0yD6A2p6EkE4QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[6]" type="UMLClass" guid="GLiIIYgN00Wz6lgQiRxPZwAA">
+<XPD:ATTR name="Name" type="string">Mesa</XPD:ATTR>
+<XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
+<XPD:ATTR name="StereotypeName" type="string">entity</XPD:ATTR>
+<XPD:REF name="Namespace">IZ0z6HryX0yD6A2p6EkE4QAA</XPD:REF>
+</XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[5]" type="UMLPackage" guid="cXhrKNoghkeMe0siYX/WUQAA">
 <XPD:ATTR name="Name" type="string">Clases controladora</XPD:ATTR>
@@ -493,10 +531,6 @@
 <XPD:ATTR name="#Instances" type="integer">1</XPD:ATTR>
 <XPD:REF name="Instances[0]">WSTwfIp63ES9hLkbSA4woQAA</XPD:REF>
 </XPD:OBJ>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedElements[7]" type="UMLPackage" guid="o7U8spFVD0SLECs28xPWOAAA">
-<XPD:ATTR name="Name" type="string">Actores</XPD:ATTR>
-<XPD:REF name="Namespace">DHHniYtMG02Of6nG049g/AAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[2]" type="UMLModel" guid="bML/OD6wXk28ZDp/3dBUdgAA">
