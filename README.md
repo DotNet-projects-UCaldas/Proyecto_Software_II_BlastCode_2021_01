@@ -4,15 +4,15 @@
 
 ### Estructura de las carpetas
 
-> Documentación General (Carpeta)
->> Formatos (Carpeta)
->> Documentos (Varios archivos)
-> Entregables (Carpeta)
-> Primera Iteración (Carpeta)
->> Diagramas de clase (Carpeta)
->> Diagramas de secuencia (Carpeta)
->> Especificación de casos de uso (Carpeta)
->> Inspección de casos de uso (Carpeta)
->> Mockups (Carpeta)
->> Recolección-validación de requisitos
->> PlaneaciónPrimeraIteración (Archivo)
+> - Documentación General (Carpeta)
+>> - Formatos (Carpeta)
+>> - Documentos (Varios archivos)
+> - Entregables (Carpeta)
+> - Primera Iteración (Carpeta)
+>> - Diagramas de clase (Carpeta)
+>> - Diagramas de secuencia (Carpeta)
+>> - Especificación de casos de uso (Carpeta)
+>> - Inspección de casos de uso (Carpeta)
+>> - Mockups (Carpeta)
+>> - Recolección-validación de requisitos
+>> - PlaneaciónPrimeraIteración (Archivo)
