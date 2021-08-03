@@ -10,8 +10,7 @@ namespace AccesoDatos.Modelos
     {
         public DateTime FechaRegistro { get; set; }
         public int Puntos { get; set; }
-        public List<VentaModel> Ventas { get; set; } = new List<VentaModel>();
-
+        
         public ClienteModel(string nombre, string apellido, string cedula, string telefono, string correo, int puntos, VentaModel venta)
             : base(nombre, apellido, cedula, telefono, correo)
         {
