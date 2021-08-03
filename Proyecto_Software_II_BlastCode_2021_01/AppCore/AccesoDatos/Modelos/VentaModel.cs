@@ -11,18 +11,18 @@ namespace AccesoDatos.Modelos
         public string Id { get; set; }
         public int Valor { get; set; }
         public DateTime Fecha { get; set; }
-        public ClienteModel Cliente { get; set; }
+        public List<ClienteModel> Clientes { get; set; }
         public List<ProductoModel> Productos { get; set; }
         public TipoVenta TipoDeVenta { get; set; }
         public int NumeroMesa { get; set; }
         public string Direccion { get; set; }
         public bool Estado { get; set; } = true;
-        public VentaModel(int valor, DateTime fecha, ClienteModel cliente, List<ProductoModel> productos,
+        public VentaModel(int valor, DateTime fecha, List<ClienteModel> clientes, List<ProductoModel> productos,
             TipoVenta tipoVenta, int numeroMesa, string direccion, bool estado)
         {
             Valor = valor;
             Fecha = fecha;
-            Cliente = cliente;
+            Clientes = clientes;
             Productos = productos;
             TipoDeVenta = tipoVenta;
             NumeroMesa = numeroMesa;
