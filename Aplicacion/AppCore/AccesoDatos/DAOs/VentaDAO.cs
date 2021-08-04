@@ -37,5 +37,10 @@ namespace AccesoDatos.DAOs
 
             return ventas;
         }
+
+        public VentaModel VentaById(string Id)
+        {
+            return _repoVentas.VentaById(Id);
+        }
     }
 }

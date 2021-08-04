@@ -1,18 +1,18 @@
 [
   {
-    "Id": "7557d7e3-52af-4353-9a5c-e0297bd80471",
+    "Id": "55598858-b28a-4d73-be9b-07209052e924",
     "Valor": 1000000,
     "Fecha": "2021-07-26T03:58:57.794Z",
     "Clientes": [
       {
+        "FechaRegistro": "0001-01-01T00:00:00",
+        "Puntos": 100,
         "Id": "7557d7e3-52af-4353-9a5c-e0297bd80798",
         "Nombre": "Prueba",
         "Apellido": "Apellido Prueba",
         "Cedula": "12345678Z",
         "Telefono": "55555555X",
-        "Correo": "cliente@correo.com",
-        "Puntos": 100,
-        "FechaRegistro": "2021-07-26T19:40:29.439Z"
+        "Correo": "cliente@correo.com"
       }
     ],
     "Productos": [

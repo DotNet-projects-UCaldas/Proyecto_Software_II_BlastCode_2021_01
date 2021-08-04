@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AccesoDatos.Interfaces;
+using AppCore.DTOs;
+using AppCore.Mapeadores;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,36 +16,56 @@ namespace AppCore.Logica
     [ApiController]
     public class AsignarVentasVClientesController : ControllerBase
     {
+        private readonly IRepositorioVenta _repositorioVenta;
+        private readonly VentaMapper _ventaMapper;
+
+        public AsignarVentasVClientesController(IRepositorioVenta repositorioVenta, VentaMapper ventaMapper)
+        {
+            this._repositorioVenta = repositorioVenta;
+            this._ventaMapper = ventaMapper;
+        }
+
         // GET: api/<AsignarVentasVClientesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<List<VentaDTO>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _ventaMapper.mapearT2T1(_repositorioVenta.ListarVentas()); ;
         }
 
         // GET api/<AsignarVentasVClientesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{Id}")]
+        public async Task<VentaDTO> Get(string Id)
         {
-            return "value";
+            return _ventaMapper.mapearT2T1(_repositorioVenta.VentaById(Id));
         }
 
         // POST api/<AsignarVentasVClientesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<VentaDTO> Post([FromBody] VentaDTO value)
         {
+            _repositorioVenta.AgregarVenta(_ventaMapper.mapearT1T2(value));
+            return value;
         }
 
-        // PUT api/<AsignarVentasVClientesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // PUT api/<AsignarVentasVClientesController>
+        [HttpPut]
+        public async Task<VentaDTO> Put([FromBody] VentaDTO value)
         {
+            VentaDTO ventaEditada = value;
+            if (_repositorioVenta.EditarVenta(_ventaMapper.mapearT1T2(ventaEditada)) != null)
+            {
+                return ventaEditada;
+            }
+            else
+                return null;
+            
         }
 
         // DELETE api/<AsignarVentasVClientesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{Id}")]
+        public async Task<VentaDTO> Delete(string Id)
         {
+            return _ventaMapper.mapearT2T1(_repositorioVenta.EliminarVenta(Id));
         }
     }
 }
