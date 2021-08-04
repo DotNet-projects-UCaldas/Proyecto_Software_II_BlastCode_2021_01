@@ -1,0 +1,47 @@
+[
+  {
+    "FechaRegistro": "2021-07-25T19:13:13.9702635-05:00",
+    "Puntos": 10,
+    "Ventas": [
+      {
+        "Saludo": "Hola"
+      }
+    ],
+    "Id": "dbfe8c2b-a452-4055-b4a1-1fd8064f9935",
+    "Nombre": "Lucas",
+    "Apellido": "Bohorquez",
+    "Cedula": "cedula",
+    "Telefono": "telefono",
+    "Correo": "correo"
+  },
+  {
+    "FechaRegistro": "2021-07-25T19:14:18.3781768-05:00",
+    "Puntos": 10,
+    "Ventas": [
+      {
+        "Saludo": "Hola"
+      }
+    ],
+    "Id": "4c529117-8422-48ea-8883-d4c3a31e8aba",
+    "Nombre": "Lucas",
+    "Apellido": "Bohorquez",
+    "Cedula": "cedula",
+    "Telefono": "telefono",
+    "Correo": "correo"
+  },
+  {
+    "FechaRegistro": "2021-07-25T20:56:58.3206284-05:00",
+    "Puntos": 10,
+    "Ventas": [
+      {
+        "Saludo": "Hola"
+      }
+    ],
+    "Id": "a63d20bb-1155-4d89-b9f2-52e2044ca6f5",
+    "Nombre": "Lucas",
+    "Apellido": "Bohorquez",
+    "Cedula": "cedula",
+    "Telefono": "telefono",
+    "Correo": "correo"
+  }
+]

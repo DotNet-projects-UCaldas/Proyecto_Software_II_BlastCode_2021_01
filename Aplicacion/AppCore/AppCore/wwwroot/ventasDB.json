@@ -1,0 +1,65 @@
+[
+  {
+    "Id": "7557d7e3-52af-4353-9a5c-e0297bd80471",
+    "Valor": 0,
+    "Fecha": "2021-07-26T03:58:57.794Z",
+    "Clientes": null,
+    "Productos": [],
+    "TipoDeVenta": 0,
+    "NumeroMesa": 0,
+    "Direccion": null,
+    "Estado": true
+  },
+  {
+    "Id": "ae89db79-5ca4-4278-bd3c-733387479849",
+    "Valor": 0,
+    "Fecha": "2021-07-26T19:40:29.439Z",
+    "Clientes": null,
+    "Productos": [],
+    "TipoDeVenta": 0,
+    "NumeroMesa": 0,
+    "Direccion": null,
+    "Estado": true
+  },
+  {
+    "Id": "4bda165f-a12a-4e2f-bf93-aa878f4be4ae",
+    "Valor": 1000,
+    "Fecha": "2021-07-26T19:40:29.439Z",
+    "Clientes": null,
+    "Productos": [],
+    "TipoDeVenta": 0,
+    "NumeroMesa": 0,
+    "Direccion": null,
+    "Estado": true
+  },
+  {
+    "Id": "604332d5-d3b3-4240-b70b-146ab1a1d214",
+    "Valor": 0,
+    "Fecha": "2021-08-04T20:17:46.478Z",
+    "Clientes": [
+      {
+        "FechaRegistro": "0001-01-01T00:00:00",
+        "Puntos": 0,
+        "Id": "string",
+        "Nombre": "lucas",
+        "Apellido": "string",
+        "Cedula": "string",
+        "Telefono": "string",
+        "Correo": "string"
+      }
+    ],
+    "Productos": [
+      {
+        "Id": "string",
+        "Nombre": "lu",
+        "Precio": 0,
+        "Codigo": "string",
+        "Descripcion": "string"
+      }
+    ],
+    "TipoDeVenta": 0,
+    "NumeroMesa": 0,
+    "Direccion": "hol",
+    "Estado": true
+  }
+]
