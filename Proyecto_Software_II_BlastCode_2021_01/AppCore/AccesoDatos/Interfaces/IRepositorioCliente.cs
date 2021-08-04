@@ -9,6 +9,9 @@ namespace AccesoDatos.Repositorios
 {
     public interface IRepositorioCliente
     {
-        public bool AgregarCliente(ClienteModel cliente);
+        public ClienteModel AgregarCliente(ClienteModel nuevoCliente);
+        public ClienteModel EditarCliente(ClienteModel cliente);
+        public List<ClienteModel> ListarClientes();
+        public ClienteModel EliminarCliente(string Id);
     }
 }

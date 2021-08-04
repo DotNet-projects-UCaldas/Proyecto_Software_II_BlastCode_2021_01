@@ -23,8 +23,11 @@ namespace AppCore.Dominio
         Precio = precio;
         Codigo = codigo;
         Descripcion = descripcion;
+    }
 
+    public Producto()
+    {
 
-        }
+    }
     }
 }
