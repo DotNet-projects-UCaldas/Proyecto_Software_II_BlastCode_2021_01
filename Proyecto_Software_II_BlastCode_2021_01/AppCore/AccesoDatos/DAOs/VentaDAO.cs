@@ -12,9 +12,9 @@ namespace AccesoDatos.DAOs
         private readonly RepositorioVentas _repoVentas = new RepositorioVentas();
         public VentaModel AgregarVenta(VentaModel nuevaVenta)
         {
-            _repoVentas.AgregarVenta(nuevaVenta);
+            VentaModel ventaGuardada = _repoVentas.AgregarVenta(nuevaVenta);
 
-            return null;
+            return ventaGuardada;
         }
 
         public VentaModel EditarVenta(VentaModel venta)
@@ -31,7 +31,7 @@ namespace AccesoDatos.DAOs
             return ventaEliminada;
         }
 
-        public IEnumerable<VentaModel> ListarVentas()
+        public List<VentaModel> ListarVentas()
         {
             List<VentaModel> ventas = _repoVentas.ListarVentas();
 

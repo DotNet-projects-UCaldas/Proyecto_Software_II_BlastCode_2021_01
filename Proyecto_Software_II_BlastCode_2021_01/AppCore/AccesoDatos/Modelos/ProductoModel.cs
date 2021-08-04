@@ -21,5 +21,10 @@ namespace AccesoDatos.Modelos
             Codigo = codigo;
             Descripcion = descripcion;
         }
+
+        public ProductoModel()
+        {
+
+        }
     }
 }

@@ -10,68 +10,71 @@ namespace AppCore.Mapeadores
 {
     public class VentaMapper : MapperVenta<VentaDTO, VentaModel>
     {
+        private readonly ClienteMapper _clienteMapper = new ClienteMapper();
+        private readonly ProductoMapper _productoMapper = new ProductoMapper();
         public override VentaModel mapearT1T2(VentaDTO entrada)
         {
-            List<VentaModel> ventas = new List<VentaModel>();
-            List<ProductoModel> productos = new List<ProductoModel>();
-            ClienteModel cliente = new ClienteModel(){
-                Nombre = "ClienteNombre",
-                Apellido = "ClienteApellido",
-                Cedula = "ClienteCedula",
-                Telefono = "ClienteTelefono",
-                Correo = "ClienteCorreo",
-                Puntos = 100,
-                Ventas = ventas
-            };
+            List<ClienteModel> clientes = _clienteMapper.mapearT1T2(entrada.Clientes);
+            List<ProductoModel> productos = _productoMapper.mapearT1T2(entrada.Productos);
+
             return new VentaModel()
             {
                 Id = entrada.Id,
                 Valor = entrada.Valor,
                 Fecha = entrada.Fecha,
-                Cliente = cliente,
-                Productos = productos
+                Clientes = clientes,
+                Productos = productos,
+                TipoDeVenta = (VentaModel.TipoVenta)entrada.TipoDeVenta,
+                NumeroMesa = entrada.NumeroMesa,
+                Direccion = entrada.Direccion,
+                Estado = entrada.Estado
             };
         }
 
-        public override IEnumerable<VentaModel> mapearT1T2(IEnumerable<VentaDTO> entrada)
+        public override List<VentaModel> mapearT1T2(List<VentaDTO> entrada)
         {
-            foreach ( var venta in entrada)
+            List<VentaModel> listaVentas = new List<VentaModel>();
+            foreach (var venta in entrada)
             {
-                yield return mapearT1T2(venta);
+                listaVentas.Add(mapearT1T2(venta));
             }
+
+            return listaVentas;
         }
 
         public override VentaDTO mapearT2T1(VentaModel entrada)
         {
-            List<VentaDTO> ventas = new List<VentaDTO>();
-            List<ProductoDTO> productos = new List<ProductoDTO>();
-            DTOs.ClienteDTO cliente = new DTOs.ClienteDTO()
-            {
-                Id = "IdCliente",
-                Nombre = "ClienteNombre",
-                Apellido = "ClienteApellido",
-                Cedula = "ClienteCedula",
-                Telefono = "ClienteTelefono",
-                Correo = "ClienteCorreo",
-                Puntos = 100,
-                Ventas = ventas
-            };
+            List<ClienteDTO> clientes = _clienteMapper.mapearT2T1(entrada.Clientes);
+            List<ProductoDTO> productos = _productoMapper.mapearT2T1(entrada.Productos);
+
             return new VentaDTO()
             {
                 Id = entrada.Id,
                 Valor = entrada.Valor,
                 Fecha = entrada.Fecha,
-                Cliente = cliente,
-                Productos = productos
+                Clientes = (List<ClienteDTO>)clientes,
+                Productos = (List<ProductoDTO>)productos,
+                TipoDeVenta = (VentaDTO.TipoVenta)entrada.TipoDeVenta,
+                NumeroMesa = entrada.NumeroMesa,
+                Direccion = entrada.Direccion,
+                Estado = entrada.Estado
             };
         }
 
-        public override IEnumerable<VentaDTO> mapearT2T1(IEnumerable<VentaModel> entrada)
+        public override List<VentaDTO> mapearT2T1(List<VentaModel> entrada)
         {
+            List<VentaDTO> listaVentas = new List<VentaDTO>();
             foreach (var venta in entrada)
             {
-                yield return mapearT2T1(venta);
+                listaVentas.Add(mapearT2T1(venta));
             }
+
+            return listaVentas;
+        }
+
+        public enum TipoVenta
+        {
+            Mostrador, Mesa, Domicilio
         }
     }
 }
