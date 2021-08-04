@@ -11,12 +11,11 @@ namespace AccesoDatos.Modelos
         public DateTime FechaRegistro { get; set; }
         public int Puntos { get; set; }
         
-        public ClienteModel(string nombre, string apellido, string cedula, string telefono, string correo, int puntos, VentaModel venta)
+        public ClienteModel(string nombre, string apellido, string cedula, string telefono, string correo, int puntos)
             : base(nombre, apellido, cedula, telefono, correo)
         {
             FechaRegistro = DateTime.Now;
             Puntos = puntos;
-            Ventas.Add(venta);
         }
 
         public ClienteModel()

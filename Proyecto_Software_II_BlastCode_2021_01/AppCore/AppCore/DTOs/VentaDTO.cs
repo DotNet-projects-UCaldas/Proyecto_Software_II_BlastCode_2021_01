@@ -10,19 +10,34 @@ namespace AppCore.DTOs
         public string Id { get; set; }
         public int Valor { get; set; }
         public DateTime Fecha { get; set; }
-        public ClienteDTO Cliente { get; set; }
+        public List<ClienteDTO> Clientes { get; set; }
         public List<ProductoDTO> Productos { get; set; }
-        public VentaDTO(string id, int valor, DateTime fecha, ClienteDTO cliente, List<ProductoDTO> productos)
+        public TipoVenta TipoDeVenta { get; set; }
+        public int NumeroMesa { get; set; }
+        public string Direccion { get; set; }
+        public bool Estado { get; set; }
+        public VentaDTO(int valor, DateTime fecha, List<ClienteDTO> clientes, List<ProductoDTO> productos,
+                TipoVenta tipoVenta, int numeroMesa, string direccion, bool estado)
         {
-            Id = id;
             Valor = valor;
             Fecha = fecha;
-            Cliente = cliente;
+            Clientes = clientes;
             Productos = productos;
+            TipoDeVenta = tipoVenta;
+            NumeroMesa = numeroMesa;
+            Direccion = direccion;
+            Estado = estado;
+
+
         }
 
         public VentaDTO()
         {
+        }
+
+        public enum TipoVenta
+        {
+            Mostrador, Mesa, Domicilio
         }
     }
 }
