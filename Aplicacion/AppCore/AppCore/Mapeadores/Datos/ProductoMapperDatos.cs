@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace AppCore.Mapeadores.Datos
 {
+    /// <summary>
+    /// Clase para mapear los productos del dominio a produdctos Modelo de la capa de acceso a datos
+    /// </summary>
     public class ProductoMapperDatos : MapperBase<Producto, ProductoModel>
     {
         public override ProductoModel mapearT1T2(Producto entrada)

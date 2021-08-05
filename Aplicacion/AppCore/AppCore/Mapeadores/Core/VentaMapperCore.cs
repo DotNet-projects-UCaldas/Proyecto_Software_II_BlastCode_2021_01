@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace AppCore.Mapeadores
 {
+    /// <summary>
+    /// Clase para mapear las ventas DTO a ventas del dominio
+    /// </summary>
     public class VentaMapperCore : MapperBase<VentaDTO, Venta>
     {
         private readonly ClienteMapperCore _clienteMapper = new ClienteMapperCore();

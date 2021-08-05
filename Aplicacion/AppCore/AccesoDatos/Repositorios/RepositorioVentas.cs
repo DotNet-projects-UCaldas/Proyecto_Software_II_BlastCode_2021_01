@@ -8,6 +8,9 @@ using System.Text;
 
 namespace AccesoDatos.Repositorios
 {
+    /// <summary>
+    /// Base de datos de ventas
+    /// </summary>
     public class RepositorioVentas
     {
         public VentaModel AgregarVenta(VentaModel nuevaVenta)

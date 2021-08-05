@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace AppCore.Mapeadores
 {
+    /// <summary>
+    /// Clase para mapear los productos DTO a productos del dominio
+    /// </summary>
     public class ProductoMapperCore : MapperBase<ProductoDTO, Producto>
     {
         public override Producto mapearT1T2(ProductoDTO entrada)

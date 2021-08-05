@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AccesoDatos.Modelos
 {
+    /// <summary>
+    /// Clase modelo para guardar en la base de datos los productos
+    /// </summary>
     public class ProductoModel
     {
         public string Id { get; set; }

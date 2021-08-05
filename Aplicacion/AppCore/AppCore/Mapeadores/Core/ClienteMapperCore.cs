@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace AppCore.Mapeadores
 {
+    /// <summary>
+    /// Clase para mapear los clientes DTO a clientes del dominio
+    /// </summary>
     public class ClienteMapperCore : MapperBase<ClienteDTO, Cliente>
     {
         public override Cliente mapearT1T2(ClienteDTO entrada)

@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace AppCore.Dominio
 {
+    /// <summary>
+    /// Clase para la lógica del dominio del objeto venta
+    /// </summary>
     public class Venta
     {
         public string Id { get; set; }

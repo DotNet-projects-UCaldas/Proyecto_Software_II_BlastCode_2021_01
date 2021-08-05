@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AccesoDatos.Interfaces
 {
+    /// <summary>
+    /// Interfaz para el repositorio de ventas
+    /// </summary>
     public interface IRepositorioVenta
     {
         public VentaModel AgregarVenta(VentaModel nuevaVenta);

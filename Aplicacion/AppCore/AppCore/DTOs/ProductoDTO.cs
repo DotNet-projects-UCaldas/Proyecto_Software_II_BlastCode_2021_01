@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace AppCore.DTOs
 {
+    /// <summary>
+    /// Clase Data Transfer Object para el manejo de la información recibida en el front para el objeto producto
+    /// </summary>
     public class ProductoDTO
     {
         public string Id { get; set; }

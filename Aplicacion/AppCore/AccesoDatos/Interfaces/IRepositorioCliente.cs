@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AccesoDatos.Repositorios
 {
+    /// <summary>
+    /// Interfaz para el repositorio de clientes
+    /// </summary>
     public interface IRepositorioCliente
     {
         public ClienteModel AgregarCliente(ClienteModel nuevoCliente);

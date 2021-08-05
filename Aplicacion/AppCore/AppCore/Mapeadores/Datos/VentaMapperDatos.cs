@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace AppCore.Mapeadores
 {
+    /// <summary>
+    /// Clase para mapear las ventas del dominio a ventas Modelo de la capa de acceso a datos
+    /// </summary>
     public class VentaMapperDatos : MapperBase<Venta, VentaModel>
     {
         private readonly ClienteMapperDatos _clienteMapperDatos = new ClienteMapperDatos();

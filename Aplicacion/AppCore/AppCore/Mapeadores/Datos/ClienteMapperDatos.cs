@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace AppCore.Mapeadores.Datos
 {
+    /// <summary>
+    /// Clase para mapear los clientes del dominio a clientes Modelo de la capa de acceso a datos
+    /// </summary>
     public class ClienteMapperDatos : MapperBase<Cliente, ClienteModel>
     {
         public override ClienteModel mapearT1T2(Cliente entrada)
