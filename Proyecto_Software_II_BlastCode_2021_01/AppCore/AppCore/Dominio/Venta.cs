@@ -12,14 +12,16 @@ namespace AppCore.Dominio
         public DateTime Fecha { get; set; }
         public Cliente Cliente { get; set; }
         public List<Producto> Productos { get; set; }
+        public int Propina {get; set; }
         
-        public Venta(int valor, DateTime fecha, Cliente cliente, List<Producto> productos )
+        public Venta(int valor, DateTime fecha, Cliente cliente, List<Producto> productos, int propina)
         {
             Id = Guid.NewGuid().ToString(); 
             Valor = valor;
             Fecha = fecha;
             Cliente = cliente;
             Productos = productos;
+            Propina = propina;
         }
         
     }

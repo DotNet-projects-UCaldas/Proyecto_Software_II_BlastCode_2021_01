@@ -12,13 +12,15 @@ namespace AppCore.DTOs
         public DateTime Fecha { get; set; }
         public ClienteDTO Cliente { get; set; }
         public List<ProductoDTO> Productos { get; set; }
-        public VentaDTO(string id, int valor, DateTime fecha, ClienteDTO cliente, List<ProductoDTO> productos)
+        public int Propina { get; set; }
+        public VentaDTO(string id, int valor, DateTime fecha, ClienteDTO cliente, List<ProductoDTO> productos, int propina)
         {
             Id = id;
             Valor = valor;
             Fecha = fecha;
             Cliente = cliente;
             Productos = productos;
+            Propina = propina;
         }
 
         public VentaDTO()

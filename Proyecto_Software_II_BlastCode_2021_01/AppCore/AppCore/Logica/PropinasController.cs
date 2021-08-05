@@ -12,36 +12,70 @@ namespace AppCore.Logica
     [ApiController]
     public class PropinasController : ControllerBase
     {
-        // GET: api/<PropinasController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IRepositorioMesero _repoMesero;
+        private readonly MeseroMapper _mapperMesero;
+
+        private readonly IRepositorioVenta _repoVenta;
+        private readonly VentaMapper _mapperVenta;
+
+        public PropinasController(IRepositorioMesero repoMesero, MeseroMapper mapeadorMesero, IRepositorioVenta repoVenta, VentaMapper mapeadorVenta)
         {
-            return new string[] { "value1", "value2" };
+            this._repoMesero = repoMesero;
+            this._mapperMesero = mapeadorMesero;
+            this._repoVenta = repoVenta;
+            this._mapperVenta = mapeadorVenta;
         }
 
-        // GET api/<PropinasController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        public obtenerPropinas()
         {
-            return "value";
+            //Console.WriteLine("Hola!!!");
+            Enumerable<MeseroDTO> meseros = GetMeseros();
+            Enumerable<VentaDTO> ventas = GetVentas();
+
+            foreach ( var mesero in meseros)
+            {
+                DateTime fechaIngreso = mesero.FechaIngreso;
+                DateTime fechaSalida = mesero.FechaSalida;
+                foreach ( var venta in ventas)
+                {
+                    if(venta.Fecha > fechaIngreso && venta.Fecha < fechaSalida)
+                    {
+                        mesero.Propina += venta.Propina;
+                    }
+                }
+                Put(mesero);
+            }
+
+        }
+
+
+        // GET: api/<PropinasController>
+        [HttpGet]
+        public async Task<List<MeseroDTO>> GetMeseros()
+        {
+            return _mapperMesero.mapearT2T1(_repoMesero.ListarMeseros());
         }
 
         // POST api/<PropinasController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<MeseroDTO> Post([FromBody] MeseroDTO value)
         {
+            _repoMesero.AgregarMesero(_mapperMesero.mapearT1T2(value));
+            return value;
         }
 
-        // PUT api/<PropinasController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+         // PUT api/<AsignarVentasVClientesController>
+        [HttpPut]
+        public async Task<MeseroDTO> Put([FromBody] MeseroDTO value)
         {
+            MeseroDTO meseroEditado = value;
+            if (_repoMesero.EditarMesero(_mapperMesero.mapearT1T2(meseroEditado)) != null)
+            {
+                return meseroEditado;
+            }
+            else
+                return null;
+            
         }
 
-        // DELETE api/<PropinasController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
-    }
 }

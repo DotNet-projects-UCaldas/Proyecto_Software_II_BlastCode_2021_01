@@ -15,8 +15,8 @@ namespace AppCore.Mapeadores
             List<VentaModel> ventas = new List<VentaModel>();
             List<ProductoModel> productos = new List<ProductoModel>();
             ClienteModel cliente = new ClienteModel(){
-                Nombre = "ClienteNombre",
-                Apellido = "ClienteApellido",
+                Nombre = "Sebas",
+                Apellido = "Orozco",
                 Cedula = "ClienteCedula",
                 Telefono = "ClienteTelefono",
                 Correo = "ClienteCorreo",
@@ -29,7 +29,8 @@ namespace AppCore.Mapeadores
                 Valor = entrada.Valor,
                 Fecha = entrada.Fecha,
                 Cliente = cliente,
-                Productos = productos
+                Productos = productos,
+                Propina = propina
             };
         }
 
@@ -48,8 +49,8 @@ namespace AppCore.Mapeadores
             DTOs.ClienteDTO cliente = new DTOs.ClienteDTO()
             {
                 Id = "IdCliente",
-                Nombre = "ClienteNombre",
-                Apellido = "ClienteApellido",
+                Nombre = "Sebas1",
+                Apellido = "Orozco1",
                 Cedula = "ClienteCedula",
                 Telefono = "ClienteTelefono",
                 Correo = "ClienteCorreo",
@@ -62,7 +63,8 @@ namespace AppCore.Mapeadores
                 Valor = entrada.Valor,
                 Fecha = entrada.Fecha,
                 Cliente = cliente,
-                Productos = productos
+                Productos = productos,
+                Propina = propina
             };
         }
 

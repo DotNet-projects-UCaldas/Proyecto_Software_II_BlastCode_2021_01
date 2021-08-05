@@ -1,0 +1,32 @@
+[
+  {
+    "FechaIngreso": "2021-07-25T19:13:13.9702635-05:00",
+    "FechaSalida": "2021-07-25T22:13:13.9702635-05:00",
+    "Id": "dbfe8c2b-a452-4055-b4a1-1fd8064f9935",
+    "Nombre": "Lucas",
+    "Apellido": "Bohorquez",
+    "Cedula": "cedula",
+    "Telefono": "telefono",
+    "Correo": "correo"
+  },
+  {
+    "FechaIngreso": "2021-07-25T19:13:13.9702635-05:00",
+    "FechaSalida": "2021-07-25T22:13:13.9702635-05:00",
+    "Id": "4c529117-8422-48ea-8883-d4c3a31e8aba",
+    "Nombre": "Sebastian",
+    "Apellido": "Orozco",
+    "Cedula": "cedula",
+    "Telefono": "telefono",
+    "Correo": "correo"
+  },
+  {
+    "FechaIngreso": "2021-07-25T19:13:13.9702635-05:00",
+    "FechaSalida": "2021-07-25T22:13:13.9702635-05:00",
+    "Id": "a63d20bb-1155-4d89-b9f2-52e2044ca6f5",
+    "Nombre": "Emilio",
+    "Apellido": "Maya",
+    "Cedula": "cedula",
+    "Telefono": "telefono",
+    "Correo": "correo"
+  }
+]
