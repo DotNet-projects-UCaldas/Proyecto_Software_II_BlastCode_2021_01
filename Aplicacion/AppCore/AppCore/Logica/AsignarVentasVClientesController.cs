@@ -17,33 +17,35 @@ namespace AppCore.Logica
     public class AsignarVentasVClientesController : ControllerBase
     {
         private readonly IRepositorioVenta _repositorioVenta;
-        private readonly VentaMapper _ventaMapper;
+        private readonly VentaMapperCore _ventaMapperCore;
+        private readonly VentaMapperDatos _ventaMapperDatos;
 
-        public AsignarVentasVClientesController(IRepositorioVenta repositorioVenta, VentaMapper ventaMapper)
+        public AsignarVentasVClientesController(IRepositorioVenta repositorioVenta, VentaMapperCore ventaMapperCore, VentaMapperDatos ventaMapperDatos)
         {
             this._repositorioVenta = repositorioVenta;
-            this._ventaMapper = ventaMapper;
+            this._ventaMapperCore = ventaMapperCore;
+            this._ventaMapperDatos = ventaMapperDatos;
         }
 
         // GET: api/<AsignarVentasVClientesController>
         [HttpGet]
         public async Task<List<VentaDTO>> Get()
         {
-            return _ventaMapper.mapearT2T1(_repositorioVenta.ListarVentas()); ;
+            return _ventaMapperCore.mapearT2T1(_ventaMapperDatos.mapearT2T1(_repositorioVenta.ListarVentas())); 
         }
 
         // GET api/<AsignarVentasVClientesController>/5
         [HttpGet("{Id}")]
         public async Task<VentaDTO> Get(string Id)
         {
-            return _ventaMapper.mapearT2T1(_repositorioVenta.VentaById(Id));
+            return _ventaMapperCore.mapearT2T1(_ventaMapperDatos.mapearT2T1(_repositorioVenta.VentaById(Id)));
         }
 
         // POST api/<AsignarVentasVClientesController>
         [HttpPost]
         public async Task<VentaDTO> Post([FromBody] VentaDTO value)
         {
-            _repositorioVenta.AgregarVenta(_ventaMapper.mapearT1T2(value));
+            _repositorioVenta.AgregarVenta(_ventaMapperDatos.mapearT1T2(_ventaMapperCore.mapearT1T2(value)));
             return value;
         }
 
@@ -52,7 +54,7 @@ namespace AppCore.Logica
         public async Task<VentaDTO> Put([FromBody] VentaDTO value)
         {
             VentaDTO ventaEditada = value;
-            if (_repositorioVenta.EditarVenta(_ventaMapper.mapearT1T2(ventaEditada)) != null)
+            if (_repositorioVenta.EditarVenta(_ventaMapperDatos.mapearT1T2(_ventaMapperCore.mapearT1T2(ventaEditada))) != null)
             {
                 return ventaEditada;
             }
@@ -65,7 +67,31 @@ namespace AppCore.Logica
         [HttpDelete("{Id}")]
         public async Task<VentaDTO> Delete(string Id)
         {
-            return _ventaMapper.mapearT2T1(_repositorioVenta.EliminarVenta(Id));
+            return _ventaMapperCore.mapearT2T1(_ventaMapperDatos.mapearT2T1(_repositorioVenta.EliminarVenta(Id)));
+        }
+
+        [HttpPost("asignarventavarios")]
+        public async Task<List<VentaDTO>> asignarVvC([FromBody] List<ClienteDTO> clientes, string IdVenta)
+        {
+            VentaDTO venta = _ventaMapperCore.mapearT2T1(_ventaMapperDatos.mapearT2T1(_repositorioVenta.VentaById(IdVenta)));
+            venta.Clientes.RemoveAll(c => c.Id != null || c.Id != "");
+            int totalParticion = clientes.Count;
+            List<VentaDTO> ventasNuevas = new List<VentaDTO>();
+            int valorCadaUno = venta.Valor / totalParticion;
+
+            foreach (var cliente in clientes)
+            {
+                VentaDTO nuevaVenta = new VentaDTO();
+                nuevaVenta = venta;
+                nuevaVenta.Valor = valorCadaUno;
+                nuevaVenta.Clientes.Add(cliente);
+                ventasNuevas.Add(nuevaVenta);
+                _repositorioVenta.AgregarVenta(_ventaMapperDatos.mapearT1T2(_ventaMapperCore.mapearT1T2(nuevaVenta)));
+            }
+
+            venta = _ventaMapperCore.mapearT2T1(_ventaMapperDatos.mapearT2T1(_repositorioVenta.EliminarVenta(IdVenta)));
+
+            return ventasNuevas;
         }
     }
 }
