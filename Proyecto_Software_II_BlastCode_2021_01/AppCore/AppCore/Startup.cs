@@ -35,6 +35,8 @@ namespace AppCore
             services.AddScoped<IRepositorioVenta, VentaDAO>();
             services.AddScoped<VentaMapper>();
             services.AddControllers();
+            services.AddScoped<IRepositorioMesero, MeseroDAO>();
+            services.AddScoped<MeseroMapper>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AppCore", Version = "v1" });

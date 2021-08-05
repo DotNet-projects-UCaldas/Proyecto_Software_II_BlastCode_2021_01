@@ -12,9 +12,9 @@ namespace AccesoDatos.DAOs
         private readonly RepositorioMeseros _repoMeseros = new RepositorioMeseros();
         public MeseroModel AgregarMesero(MeseroModel nuevoMesero)
         {
-            _repoMeseros.AgregarMesero(nuevoMesero);
+            MeseroModel MeseroGuardado = _repoMeseros.AgregarMesero(nuevoMesero);
 
-            return null;
+            return MeseroGuardado;
         }
 
         public MeseroModel EditarMesero(MeseroModel mesero)
@@ -31,12 +31,16 @@ namespace AccesoDatos.DAOs
             return meseroEliminado;
         }
 
-        public IEnumerable<MeseroModel> ListarMeseros()
+        public List<MeseroModel> ListarMeseros()
         {
             List<MeseroModel> meseros = _repoMeseros.ListarMeseros();
 
             return meseros;
         }
-  
+
+        public MeseroModel MeseroById(string Id)
+        {
+            return _repoMeseros.MeseroById(Id);
+        }
     }
 }

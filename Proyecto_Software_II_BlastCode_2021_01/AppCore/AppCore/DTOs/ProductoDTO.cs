@@ -21,5 +21,10 @@ namespace AppCore.DTOs
             Codigo = codigo;
             Descripcion = descripcion;
         }
+
+        public ProductoDTO()
+        {
+
+        }
     }
 }

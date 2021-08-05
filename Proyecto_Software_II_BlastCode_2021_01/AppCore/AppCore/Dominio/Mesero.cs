@@ -11,10 +11,11 @@ namespace AppCore.Dominio
         public DateTime FechaSalida { get; set; }
         public int Propina { get; set; }
 
-        public Mesero(string nombre, string apellido, string cedula, string telefono, string correo, DateTime fechaIngreso, DateTime fechaSalida, int propina)
+        public Mesero(string nombre, string apellido, string cedula, string telefono, string correo, 
+                      DateTime fechaIngreso, DateTime fechaSalida, int propina)
             : base(nombre, apellido, cedula, telefono, correo)
         {
-            FechaRegistro = fechaIngreso;
+            FechaIngreso = fechaIngreso;
             FechaSalida = fechaSalida;
             Propina = propina;
         }

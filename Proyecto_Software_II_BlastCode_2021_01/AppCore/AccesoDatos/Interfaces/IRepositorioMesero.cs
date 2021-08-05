@@ -5,13 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccesoDatos.Repositorios
+namespace AccesoDatos.Interfaces
 {
     public interface IRepositorioMesero
     {
-        public MeseroModel AgregarMesero(MeseroModel nuevoMesero);
+        public MeseroModel AgregarMesero(MeseroModel nuevaMesero);
         public MeseroModel EditarMesero(MeseroModel mesero);
-        public IEnumerable<MeseroModel> ListarMeseros();
+        public List<MeseroModel> ListarMeseros();
         public MeseroModel EliminarMesero(string Id);
+        public MeseroModel MeseroById(string Id);
+
     }
 }

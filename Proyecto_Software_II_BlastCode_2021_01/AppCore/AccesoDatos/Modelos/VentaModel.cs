@@ -18,7 +18,6 @@ namespace AccesoDatos.Modelos
         public string Direccion { get; set; }
         public bool Estado { get; set; } = true;
         public int Propina { get; set; }
-
         public VentaModel(int valor, DateTime fecha, List<ClienteModel> clientes, List<ProductoModel> productos,
             TipoVenta tipoVenta, int numeroMesa, string direccion, bool estado, int propina)
         {
@@ -31,6 +30,7 @@ namespace AccesoDatos.Modelos
             Direccion = direccion;
             Estado = estado;
             Propina = propina;
+
         }
 
         public VentaModel()

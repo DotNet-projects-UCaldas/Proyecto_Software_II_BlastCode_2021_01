@@ -11,10 +11,11 @@ namespace AppCore.DTOs
         public DateTime FechaSalida { get; set; }
         public int Propina { get; set; }
 
-        public MeseroDTO(string id, string nombre, string apellido, string cedula, string telefono, string correo, DateTime fechaIngreso, DateTime fechaSalida, int propina)
+        public MeseroDTO(string id, string nombre, string apellido, string cedula, string telefono, string correo, 
+                         DateTime fechaIngreso, DateTime fechaSalida, int propina)
             : base(id, nombre, apellido, cedula, telefono, correo)
         {
-            FechaRegistro = fechaIngreso;
+            FechaIngreso = fechaIngreso;
             FechaSalida = fechaSalida;
             Propina = propina;
         }

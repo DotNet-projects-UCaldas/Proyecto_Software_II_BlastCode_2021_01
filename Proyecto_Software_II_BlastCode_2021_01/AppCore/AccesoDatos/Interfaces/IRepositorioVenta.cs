@@ -11,8 +11,9 @@ namespace AccesoDatos.Interfaces
     {
         public VentaModel AgregarVenta(VentaModel nuevaVenta);
         public VentaModel EditarVenta(VentaModel venta);
-        public IEnumerable<VentaModel> ListarVentas();
+        public List<VentaModel> ListarVentas();
         public VentaModel EliminarVenta(string Id);
+        public VentaModel VentaById(string Id);
 
     }
 }

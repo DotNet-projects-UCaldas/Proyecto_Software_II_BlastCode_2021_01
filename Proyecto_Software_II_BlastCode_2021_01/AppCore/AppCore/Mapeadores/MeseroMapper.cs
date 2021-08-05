@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace AppCore.Mapeadores
 {
     public class MeseroMapper : MapperMesero<MeseroDTO, MeseroModel>
@@ -14,46 +15,54 @@ namespace AppCore.Mapeadores
         {
             return new MeseroModel()
             {
-                Nombre = entrada.Nombre;
-                Apellido = entrada.Apellido;
-                Cedula = entrada.Cedula;
-                Telefono = entrada.Telefono;
-                Correo = entrada.Correo;
-                FechaRegistro = entrada.FechaIngreso;
-                FechaSalida = entrada.FechaSalida;
-                Propina = entrada.Propina;
+                Id = entrada.Id,
+                Nombre = entrada.Nombre,
+                Apellido = entrada.Apellido,
+                Cedula = entrada.Cedula,
+                Telefono = entrada.Telefono,
+                Correo = entrada.Correo,
+                FechaIngreso = entrada.FechaIngreso,
+                FechaSalida = entrada.FechaSalida,
+                Propina = entrada.Propina
             };
         }
 
-        public override IEnumerable<MeseroModel> mapearT1T2(IEnumerable<MeseroDTO> entrada)
+        public override List<MeseroModel> mapearT1T2(List<MeseroDTO> entrada)
         {
-            foreach ( var mesero in entrada)
+            List<MeseroModel> listaMeseros = new List<MeseroModel>();
+            foreach (var mesero in entrada)
             {
-                yield return mapearT1T2(mesero);
+                listaMeseros.Add(mapearT1T2(mesero));
             }
+
+            return listaMeseros;
         }
 
         public override MeseroDTO mapearT2T1(MeseroModel entrada)
         {
             return new MeseroDTO()
             {
-                Nombre = entrada.Nombre;
-                Apellido = entrada.Apellido;
-                Cedula = entrada.Cedula;
-                Telefono = entrada.Telefono;
-                Correo = entrada.Correo;
-                FechaRegistro = entrada.FechaIngreso;
-                FechaSalida = entrada.FechaSalida;
-                Propina = entrada.Propina;
+                Id = entrada.Id,
+                Nombre = entrada.Nombre,
+                Apellido = entrada.Apellido,
+                Cedula = entrada.Cedula,
+                Telefono = entrada.Telefono,
+                Correo = entrada.Correo,
+                FechaIngreso = entrada.FechaIngreso,
+                FechaSalida = entrada.FechaSalida,
+                Propina = entrada.Propina
             };
         }
 
-        public override IEnumerable<MeseroDTO> mapearT2T1(IEnumerable<MeseroModel> entrada)
+        public override List<MeseroDTO> mapearT2T1(List<MeseroModel> entrada)
         {
+            List<MeseroDTO> listaMeseros = new List<MeseroDTO>();
             foreach (var mesero in entrada)
             {
-                yield return mapearT2T1(mesero);
+                listaMeseros.Add(mapearT2T1(mesero));
             }
+
+            return listaMeseros;
         }
     }
 }
