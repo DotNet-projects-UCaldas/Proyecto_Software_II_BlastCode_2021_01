@@ -13,10 +13,14 @@ namespace AppCore.Dominio
         public string Descripcion { get; set; }
         public List<SubCategoria> SubCategorias { get; set; }
 
+        public Categoria(){
+
+        }
+
         // ZONA DE METODOS 
-        public Categoria(string nombre, string descripcion, List<SubCategoria> subCategorias)
+        public Categoria(string id, string nombre, string descripcion, List<SubCategoria> subCategorias)
         {
-            Id = Guid.NewGuid().ToString(); 
+            Id = id; 
             Nombre = nombre;
             Descripcion = descripcion;
             SubCategorias = subCategorias;
