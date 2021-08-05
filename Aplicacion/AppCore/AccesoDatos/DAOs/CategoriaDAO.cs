@@ -7,7 +7,7 @@ using AccesoDatos.Repositorios;
 
 namespace AccesoDatos.DAOs
 {
-    class CategoriaDAO : IRepositorioCategorias
+    public class CategoriaDAO : IRepositorioCategorias
     {
         private readonly RepositorioCategorias _repoCategorias = new RepositorioCategorias();
 

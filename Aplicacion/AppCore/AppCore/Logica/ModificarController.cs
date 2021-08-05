@@ -56,7 +56,7 @@ namespace AppCore.Logica
         public void Post([FromBody] string value)
         {
         }
-
+        
         // PUT api/<CategoriasController>/5
         [HttpPut]
         public async Task<CategoriaDTO> Put([FromBody] CategoriaDTO value)
@@ -72,7 +72,7 @@ namespace AppCore.Logica
             }
         }
 
-        [HttpPut]
+        [HttpPut("putSub")]
         public async Task<SubCategoriaDTO> PutSub([FromBody] SubCategoriaDTO value)
         {
             SubCategoriaDTO subCateEditada = value;

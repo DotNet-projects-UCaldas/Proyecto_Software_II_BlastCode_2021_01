@@ -11,7 +11,7 @@ namespace AppCore.DTOs
         public string Id { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public List<SubCategoriaDTO> SubCategorias { get; set; }
+        public List<SubCategoriaDTO> SubCategorias { get; set;}
 
         // ZONA DE METODOS
         public CategoriaDTO()

@@ -31,7 +31,9 @@ namespace AccesoDatos.Repositorios
 
             if (categorias != null && categorias.Where(cat => cat.Id == categoria.Id).FirstOrDefault() != null)
             {
-                categorias[categorias.FindIndex(cat => cat.Id == categoria.Id)] = categoria;
+                categorias[categorias.FindIndex(cat => cat.Id == categoria.Id)].Id = categoria.Id;
+                categorias[categorias.FindIndex(cat => cat.Id == categoria.Id)].Nombre = categoria.Nombre;
+                categorias[categorias.FindIndex(cat => cat.Id == categoria.Id)].Descripcion = categoria.Descripcion;
                 string jsonString = JsonConvert.SerializeObject(categorias, Formatting.Indented);
                 File.WriteAllText(rutaDB, jsonString);
                 return categoria;

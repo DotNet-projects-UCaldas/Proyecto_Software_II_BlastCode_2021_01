@@ -7,7 +7,7 @@ using AccesoDatos.Repositorios;
 
 namespace AccesoDatos.DAOs
 {
-    class SubCategoriaDAO : IRepositorioSubCategorias
+    public class SubCategoriaDAO : IRepositorioSubCategorias
     {
         private readonly RepositorioSubCategorias _repoSubCategorias = new RepositorioSubCategorias();
 

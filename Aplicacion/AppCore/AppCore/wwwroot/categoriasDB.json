@@ -1,14 +1,14 @@
 [
-    {
-        "Id" : "123abc",
-        "Nombre" : "categoria1",
-        "Descripcion" : "esto es una descripcion",
-        "SubCategorias" : [
-            {
-                "Id" : "abc123",
-                "Nombre" : "subcategoria1 de la categoria1",
-                "Descripcion" :"esto es una descripcion"
-            }
-        ]
-    }
+  {
+    "Id": "123abc",
+    "Nombre": "prueba2",
+    "Descripcion": "sera que funciona??",
+    "SubCategorias": [
+      {
+        "Id": "string",
+        "Nombre": "quiero cambiar",
+        "Descripcion": "porque si"
+      }
+    ]
+  }
 ]
