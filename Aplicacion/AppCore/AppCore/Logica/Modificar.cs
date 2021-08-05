@@ -39,11 +39,9 @@ namespace AppCore.Logica
 
         // GET: api/<CategoriasController>
         [HttpGet]
-        public IEnumerable<CategoriaDTO> Get()
+        public async Task<List<CategoriaDTO>> Get()
         {
-            IEnumerable<CategoriaDTO> categorias = _mapperCate.mapearT2T1(_repoCate.ListarCategorias());
-
-            return categorias;
+            return _mapperCate.mapearT2T1(_repoCate.ListarCategorias());
         }
 
         // GET api/<CategoriasController>/5
@@ -60,9 +58,32 @@ namespace AppCore.Logica
         }
 
         // PUT api/<CategoriasController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public async Task<CategoriaDTO> Put([FromBody] CategoriaDTO value)
         {
+            CategoriaDTO categoriaEditada = value;
+            if (_repoCate.modificarCategoria(_mapperCate.mapearT1T2(categoriaEditada)) != null)
+            {
+                return categoriaEditada;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        [HttpPut]
+        public async Task<SubCategoriaDTO> PutSub([FromBody] SubCategoriaDTO value)
+        {
+            SubCategoriaDTO subCateEditada = value;
+            if (_repoSubCate.modificarSubcategoria(_mapperSubCate.mapearT1T2(subCateEditada)) != null)
+            {
+                return subCateEditada;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         // DELETE api/<CategoriasController>/5

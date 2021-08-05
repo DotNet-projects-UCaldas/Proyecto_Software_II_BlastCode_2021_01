@@ -15,8 +15,9 @@ namespace AccesoDatos.Modelos
         {
         }
 
-        public SubCategoriaModel(string nombre, string descripcion)
+        public SubCategoriaModel(string id, string nombre, string descripcion)
         {
+            Id = id;
             Nombre = nombre;
             Descripcion = descripcion;
         }
