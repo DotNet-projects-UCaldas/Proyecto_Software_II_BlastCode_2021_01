@@ -1,5 +1,4 @@
 ﻿using AccesoDatos.Modelos;
-using AppCore.Dominio;
 using AppCore.DTOs;
 using AppCore.Mapeadores.Abstract;
 using System;
@@ -7,13 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AppCore.Mapeadores
+namespace AppCore.Mapeadores.Datos
 {
-    public class ProductoMapperCore : MapperBase<ProductoDTO, Producto>
+    public class ProductoMapperDatos : MapperBase<ProductoDTO, ProductoModel>
     {
-        public override Producto mapearT1T2(ProductoDTO entrada)
+        public override ProductoModel mapearT1T2(ProductoDTO entrada)
         {
-            return new Producto()
+            return new ProductoModel()
             {
                 Id = entrada.Id,
                 Nombre = entrada.Nombre,
@@ -23,9 +22,9 @@ namespace AppCore.Mapeadores
             };
         }
 
-        public override List<Producto> mapearT1T2(List<ProductoDTO> entrada)
+        public override List<ProductoModel> mapearT1T2(List<ProductoDTO> entrada)
         {
-            List<Producto> listaProductos = new List<Producto>();
+            List<ProductoModel> listaProductos = new List<ProductoModel>();
 
             foreach (var producto in entrada)
             {
@@ -35,7 +34,7 @@ namespace AppCore.Mapeadores
             return listaProductos;
         }
 
-        public override ProductoDTO mapearT2T1(Producto entrada)
+        public override ProductoDTO mapearT2T1(ProductoModel entrada)
         {
             return new ProductoDTO()
             {
@@ -47,7 +46,7 @@ namespace AppCore.Mapeadores
             };
         }
 
-        public override List<ProductoDTO> mapearT2T1(List<Producto> entrada)
+        public override List<ProductoDTO> mapearT2T1(List<ProductoModel> entrada)
         {
             List<ProductoDTO> listaProductos = new List<ProductoDTO>();
 

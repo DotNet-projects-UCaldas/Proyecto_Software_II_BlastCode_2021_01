@@ -1,6 +1,7 @@
 ﻿using AccesoDatos.Modelos;
 using AppCore.DTOs;
 using AppCore.Mapeadores.Abstract;
+using AppCore.Mapeadores.Datos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,8 @@ namespace AppCore.Mapeadores
 {
     public class VentaMapperDatos : MapperBase<VentaDTO, VentaModel>
     {
-        private readonly ClienteMapperCore _clienteMapper = new ClienteMapperCore();
-        private readonly ProductoMapperCore _productoMapper = new ProductoMapperCore();
+        private readonly ClienteMapperDatos _clienteMapper = new ClienteMapperDatos();
+        private readonly ProductoMapperDatos _productoMapper = new ProductoMapperDatos();
         public override VentaModel mapearT1T2(VentaDTO entrada)
         {
             List<ClienteModel> clientes = _clienteMapper.mapearT1T2(entrada.Clientes);
