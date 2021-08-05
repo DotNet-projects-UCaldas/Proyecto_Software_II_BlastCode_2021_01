@@ -15,14 +15,19 @@ namespace AppCore.Logica
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VentasController : ControllerBase
+    public class VentasMostradorController : ControllerBase
     {
         private readonly IRepositorioVenta _repo;
         private readonly VentaMapper _mapper;
-        public VentasController(IRepositorioVenta repo, VentaMapper mapeadorVenta)
+        private readonly IRepositorioCliente _repoCliente;
+       
+       
+        public VentasMostradorController(IRepositorioVenta repo, VentaMapper mapeadorVenta, IRepositorioCliente repoCliente)
         {
             this._repo = repo;
             this._mapper = mapeadorVenta;
+            this._repoCliente = repoCliente;
+           
         }
 
         // GET: api/<VentasController>
@@ -35,29 +40,55 @@ namespace AppCore.Logica
 
         // GET api/<VentasController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public VentaDTO Get(string id)
         {
-            return "value";
+            return _mapper.mapearT2T1(_repo.VentaById(id));
         }
 
         // POST api/<VentasController>
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] VentaDTO venta)
         {
+
+            var clientes = _repoCliente.ListarClientes();
+
+            foreach(var cliente in clientes)
+            {
+                foreach(var clienteVenta in venta.Clientes)
+                {
+                    if (clienteVenta.Id == cliente.Id)
+                    {
+                        cliente.Puntos += venta.Valor / 1000;
+                        
+                        _repoCliente.EditarCliente(cliente);
+                    }
+                }
+            }
             _repo.AgregarVenta(_mapper.mapearT1T2(venta));
             return NoContent();
         }
 
+       
+
         // PUT api/<VentasController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public void Put([FromBody] VentaDTO venta)
         {
+            _repo.EditarVenta(_mapper.mapearT1T2(venta));
         }
+
 
         // DELETE api/<VentasController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(string id)
         {
+            _repo.EliminarVenta(id);
+        }
+        
+        [HttpCerrar("{id}")]
+        public void Cerrar(string id)
+        {
+            
         }
     }
 }

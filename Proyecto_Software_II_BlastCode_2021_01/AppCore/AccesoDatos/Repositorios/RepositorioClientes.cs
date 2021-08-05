@@ -52,7 +52,7 @@ namespace AccesoDatos.Repositorios
                 clientes = null;
             }
 
-            if (clientes != null && clientes.Where(v => v.Id == cliente.Id).FirstOrDefault() == null)
+            if (clientes != null && clientes.Where(v => v.Id == cliente.Id).FirstOrDefault() != null)
             {
 
                 clientes[clientes.FindIndex(v => v.Id == cliente.Id)] = cliente;
@@ -84,6 +84,7 @@ namespace AccesoDatos.Repositorios
             }
             else return null;
         }
+        
 
         public ClienteModel EliminarCliente(string Id)
         {
@@ -102,8 +103,31 @@ namespace AccesoDatos.Repositorios
 
             if (clientes != null && clientes.Where(v => v.Id == Id).FirstOrDefault() != null)
             {
+                
                 clienteEliminado = clientes.Where(v => v.Id == Id).FirstOrDefault();
                 return clienteEliminado;
+            }
+            else return null;
+        }
+        public ClienteModel BuscarCliente(string Id)
+        {
+            string rutaDB = "./wwwroot/clientesDB.json";
+            string jsonData = System.IO.File.ReadAllText(rutaDB);
+            ClienteModel clienteBuscado;
+            List<ClienteModel> clientes;
+            try
+            {
+                clientes = JsonConvert.DeserializeObject<List<ClienteModel>>(jsonData);
+            }
+            catch (Exception)
+            {
+                clientes = null;
+            }
+
+            if (clientes != null && clientes.Where(v => v.Id == Id).FirstOrDefault() != null)
+            {
+                clienteBuscado = clientes.Where(v => v.Id == Id).FirstOrDefault();
+                return clienteBuscado;
             }
             else return null;
         }

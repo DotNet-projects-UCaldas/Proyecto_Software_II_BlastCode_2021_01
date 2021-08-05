@@ -13,6 +13,7 @@ namespace AccesoDatos.Interfaces
         public VentaModel EditarVenta(VentaModel venta);
         public List<VentaModel> ListarVentas();
         public VentaModel EliminarVenta(string Id);
+        public VentaModel VentaById(string Id);
 
     }
 }
