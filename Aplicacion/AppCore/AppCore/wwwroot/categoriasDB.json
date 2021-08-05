@@ -1,0 +1,14 @@
+[
+    {
+        "Id" : "123abc",
+        "Nombre" : "categoria1",
+        "Descripcion" : "esto es una descripcion",
+        "SubCategorias" : [
+            {
+                "Id" : "abc123",
+                "Nombre" : "subcategoria1 de la categoria1",
+                "Descripcion" :"esto es una descripcion"
+            }
+        ]
+    }
+]
