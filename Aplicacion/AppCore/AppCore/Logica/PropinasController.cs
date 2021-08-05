@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AppCore.Excepciones;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 /// <summary>
@@ -50,52 +51,48 @@ namespace AppCore.Logica
             List<MeseroDTO> meseros = _mapperMeseroCore.mapearT2T1(_mapperMeseroDatos.mapearT2T1(_repoMesero.ListarMeseros()));
             List<VentaDTO> ventas = _mapperVentaCore.mapearT2T1(_mapperVentaDatos.mapearT2T1(_repoVenta.ListarVentas()));
 
-
-            /*foreach (var mesero in meseros)
+            if (meseros == null)
             {
-                DateTime fechaIngreso = mesero.FechaIngreso;
-                DateTime fechaSalida = mesero.FechaSalida;
-                mesero.Propina = 0;
+                throw new MeseroException("NO HAY MESEROS REGISTRADOS");
+            }
+            else if (ventas == null)
+            {
+                throw new VentaException("NO HAY VENTAS REGISTRADAS");
+            }
+            else
+            {
+                foreach (var mesero in meseros)
+                {
+                    mesero.Propina = 0;
+                }
+                int k = 0;
                 foreach (var venta in ventas)
                 {
-                    if (venta.Fecha > fechaIngreso && venta.Fecha < fechaSalida)
+                    k = 0;
+                    foreach (var mesero in meseros)
                     {
-                        mesero.Propina += venta.Propina;
+                        if (venta.Fecha > mesero.FechaIngreso && venta.Fecha < mesero.FechaSalida)
+                        {
+                            k++;
+                        }
+                    }
+                    foreach (var mesero in meseros)
+                    {
+                        if (venta.Fecha > mesero.FechaIngreso && venta.Fecha < mesero.FechaSalida)
+                        {
+                            mesero.Propina += venta.Propina / k;
+                        }
                     }
                 }
-                _repoMesero.EditarMesero(_mapperMeseroDatos.mapearT1T2(_mapperMeseroCore.mapearT1T2(mesero)));
-            }*/
-            foreach (var mesero in meseros)
-            {
-                mesero.Propina = 0;
-            }
-            int k = 0;
-            foreach (var venta in ventas)
-            {
-                k = 0;
+
                 foreach (var mesero in meseros)
                 {
-                    if (venta.Fecha > mesero.FechaIngreso && venta.Fecha < mesero.FechaSalida)
-                    {
-                        k++;
-                    }
+                    _repoMesero.EditarMesero(_mapperMeseroDatos.mapearT1T2(_mapperMeseroCore.mapearT1T2(mesero)));
                 }
-                foreach (var mesero in meseros)
-                {
-                    if (venta.Fecha > mesero.FechaIngreso && venta.Fecha < mesero.FechaSalida)
-                    {
-                        mesero.Propina += venta.Propina / k;
-                    }
-                }
-            }
 
-            foreach (var mesero in meseros)
-            {
-                _repoMesero.EditarMesero(_mapperMeseroDatos.mapearT1T2(_mapperMeseroCore.mapearT1T2(mesero)));
+                //return "ok";
+                return _mapperMeseroCore.mapearT2T1(_mapperMeseroDatos.mapearT2T1(_repoMesero.ListarMeseros()));
             }
-
-            //return "ok";
-            return _mapperMeseroCore.mapearT2T1(_mapperMeseroDatos.mapearT2T1(_repoMesero.ListarMeseros()));
 
         }
 
