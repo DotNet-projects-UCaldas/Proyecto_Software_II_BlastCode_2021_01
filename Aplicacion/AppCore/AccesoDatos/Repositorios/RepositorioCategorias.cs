@@ -16,7 +16,7 @@ namespace AccesoDatos.Repositorios
 
         public CategoriaModel modificarCategoria(CategoriaModel categoria)
         {
-            string rutaDB = "./wwwroot/ventasDB.json";
+            string rutaDB = "./wwwroot/categoriasDB.json";
             string jsonData = System.IO.File.ReadAllText(rutaDB);
             List<CategoriaModel> categorias;
 
@@ -36,6 +36,27 @@ namespace AccesoDatos.Repositorios
                 File.WriteAllText(rutaDB, jsonString);
                 return categoria;
             }
+            return null;
+        }
+
+        public List<CategoriaModel> ListarCategorias(){
+            string rutaDB = "./wwwroot/categoriasDB.json";
+            string jsonData = System.IO.File.ReadAllText(rutaDB);
+            List<CategoriaModel> categorias;
+
+            try
+            {
+                categorias = JsonConvert.DeserializeObject<List<CategoriaModel>>(jsonData);
+            }
+            catch (Exception)
+            {
+                categorias = null;
+            }
+
+            if(categorias != null){
+                return categorias;
+            }
+
             return null;
         }
     }

@@ -17,5 +17,12 @@ namespace AccesoDatos.DAOs
 
             return cate_modificada;
         }
+
+        public List<CategoriaModel> ListarCategorias()
+        {
+            List<CategoriaModel> categorias = _repoCategorias.ListarCategorias();
+
+            return categorias;
+        }
     }
 }

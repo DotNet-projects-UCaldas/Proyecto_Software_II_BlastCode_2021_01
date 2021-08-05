@@ -12,5 +12,7 @@ namespace AccesoDatos.Interfaces
 
         // public CategoriaModel crearCategoria();
         public CategoriaModel modificarCategoria(CategoriaModel categoria);
+
+        public List<CategoriaModel> ListarCategorias();
     }
 }

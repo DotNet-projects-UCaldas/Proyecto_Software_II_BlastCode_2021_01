@@ -16,9 +16,8 @@ namespace AccesoDatos.Modelos
         {
         }
 
-        public CategoriaModel(string id, string nombre, string descripcion, List<SubCategoriaModel> subCategorias)
+        public CategoriaModel(string nombre, string descripcion, List<SubCategoriaModel> subCategorias)
         {
-            Id = id;
             Nombre = nombre;
             Descripcion = descripcion;
             SubCategorias = subCategorias;

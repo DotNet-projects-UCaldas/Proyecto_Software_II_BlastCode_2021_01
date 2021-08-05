@@ -18,9 +18,8 @@ namespace AppCore.DTOs
         {
         }
 
-        public CategoriaDTO(string id, string nombre, string descripcion, List<SubCategoriaDTO> subCategorias)
+        public CategoriaDTO(string nombre, string descripcion, List<SubCategoriaDTO> subCategorias)
         {
-            Id = id;
             Nombre = nombre;
             Descripcion = descripcion;
             SubCategorias = subCategorias;
