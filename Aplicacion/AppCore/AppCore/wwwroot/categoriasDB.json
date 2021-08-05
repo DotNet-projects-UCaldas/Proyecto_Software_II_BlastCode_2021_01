@@ -1,8 +1,8 @@
 [
   {
     "Id": "123abc",
-    "Nombre": "prueba2",
-    "Descripcion": "sera que funciona??",
+    "Nombre": "nnnnn",
+    "Descripcion": "lo que sea",
     "SubCategorias": [
       {
         "Id": "string",

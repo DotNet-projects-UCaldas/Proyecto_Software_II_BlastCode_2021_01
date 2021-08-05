@@ -18,18 +18,22 @@ namespace AppCore.Logica
     public class Modificar : ControllerBase
     {
         private readonly IRepositorioCategorias _repoCate;
-        private readonly CategoriaMapper _mapperCate;
+        private readonly CategoriaMapperCore _mapperCate;
+        private readonly CategoriaMapperDatos _mapperCateDatos;
 
 
         private readonly IRepositorioSubCategorias _repoSubCate;
-        private readonly SubCategoriaMapper _mapperSubCate;
+        private readonly SubCategoriaMapperCore _mapperSubCate;
+        private readonly SubCategoriaMapperDatos _mapperSubCateDatos;
 
-        public Modificar(IRepositorioCategorias repoCate, CategoriaMapper mapperCate, IRepositorioSubCategorias repoSubCate, SubCategoriaMapper mapperSubCate)
+        public Modificar(IRepositorioCategorias repoCate, CategoriaMapperCore mapperCate, IRepositorioSubCategorias repoSubCate, SubCategoriaMapperCore mapperSubCate, CategoriaMapperDatos mapperCateDatos, SubCategoriaMapperDatos mapperSubCateDatos) 
         {
             this._repoCate = repoCate;
             this._mapperCate = mapperCate;
+            this._mapperCateDatos = mapperCateDatos;
             this._repoSubCate = repoSubCate;
             this._mapperSubCate = mapperSubCate;
+            this._mapperSubCateDatos = mapperSubCateDatos;
         }
 
 
@@ -41,7 +45,8 @@ namespace AppCore.Logica
         [HttpGet]
         public async Task<List<CategoriaDTO>> Get()
         {
-            return _mapperCate.mapearT2T1(_repoCate.ListarCategorias());
+            List<CategoriaDTO> categorias = _mapperCate.mapearT2T1(_mapperCateDatos.mapearT2T1(_repoCate.ListarCategorias()));
+            return categorias;
         }
 
         // GET api/<CategoriasController>/5
@@ -62,7 +67,7 @@ namespace AppCore.Logica
         public async Task<CategoriaDTO> Put([FromBody] CategoriaDTO value)
         {
             CategoriaDTO categoriaEditada = value;
-            if (_repoCate.modificarCategoria(_mapperCate.mapearT1T2(categoriaEditada)) != null)
+            if (_repoCate.modificarCategoria(_mapperCateDatos.mapearT1T2(_mapperCate.mapearT1T2(value))) != null)
             {
                 return categoriaEditada;
             }
@@ -76,7 +81,7 @@ namespace AppCore.Logica
         public async Task<SubCategoriaDTO> PutSub([FromBody] SubCategoriaDTO value)
         {
             SubCategoriaDTO subCateEditada = value;
-            if (_repoSubCate.modificarSubcategoria(_mapperSubCate.mapearT1T2(subCateEditada)) != null)
+            if (_repoSubCate.modificarSubcategoria(_mapperSubCateDatos.mapearT1T2(_mapperSubCate.mapearT1T2(value))) != null)
             {
                 return subCateEditada;
             }
