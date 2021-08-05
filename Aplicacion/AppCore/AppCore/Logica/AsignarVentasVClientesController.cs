@@ -22,6 +22,11 @@ namespace AppCore.Logica
         private readonly VentaMapperCore _ventaMapperCore;
         private readonly VentaMapperDatos _ventaMapperDatos;
 
+        public AsignarVentasVClientesController()
+        {
+
+        }
+
         public AsignarVentasVClientesController(IRepositorioVenta repositorioVenta, VentaMapperCore ventaMapperCore, VentaMapperDatos ventaMapperDatos)
         {
             this._repositorioVenta = repositorioVenta;
