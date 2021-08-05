@@ -18,18 +18,20 @@ namespace AppCore.Logica
     public class VentasController : ControllerBase
     {
         private readonly IRepositorioVenta _repo;
-        private readonly VentaMapper _mapper;
-        public VentasController(IRepositorioVenta repo, VentaMapper mapeadorVenta)
+        private readonly VentaMapperCore _ventaMapperCore;
+        private readonly VentaMapperDatos _ventaMapperDatos;
+        public VentasController(IRepositorioVenta repo, VentaMapperCore ventaMapperCore, VentaMapperDatos ventaMapperDatos)
         {
             this._repo = repo;
-            this._mapper = mapeadorVenta;
+            this._ventaMapperCore = ventaMapperCore;
+            this._ventaMapperDatos = ventaMapperDatos;
         }
 
         // GET: api/<VentasController>
         [HttpGet]
         public IEnumerable<VentaDTO> Get()
         {
-            IEnumerable<VentaDTO> ventas = _mapper.mapearT2T1(_repo.ListarVentas());
+            IEnumerable<VentaDTO> ventas = _ventaMapperCore.mapearT2T1(_ventaMapperDatos.mapearT2T1(_repo.ListarVentas()));
             return ventas;
         }
 
@@ -44,7 +46,7 @@ namespace AppCore.Logica
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] VentaDTO venta)
         {
-            _repo.AgregarVenta(_mapper.mapearT1T2(venta));
+            _repo.AgregarVenta(_ventaMapperDatos.mapearT1T2(_ventaMapperCore.mapearT1T2(venta)));
             return NoContent();
         }
 

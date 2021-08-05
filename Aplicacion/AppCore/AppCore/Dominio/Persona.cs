@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace AppCore.Dominio
 {
+    /// <summary>
+    /// Clase para la lógica del dominio del objeto persona de la cual heredan cliente y mesero
+    /// </summary>
     public class Persona
     {
         public string Id { get; set; }
@@ -22,6 +25,11 @@ namespace AppCore.Dominio
             Cedula = cedula;
             Telefono = telefono;
             Correo = correo;
+
+        }
+
+        public Persona()
+        {
 
         }
 

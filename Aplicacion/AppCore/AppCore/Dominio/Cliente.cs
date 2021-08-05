@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace AppCore.Dominio
 {
+    /// <summary>
+    /// Clase para la lógica del dominio del objeto cliente
+    /// </summary>
     public class Cliente : Persona
     {
         public DateTime FechaRegistro { get; set; }
@@ -17,6 +20,11 @@ namespace AppCore.Dominio
             FechaRegistro = DateTime.Now;
             Puntos = puntos;
             Ventas.Add(venta);
+        }
+
+        public Cliente()
+        {
+
         }
     }
 }

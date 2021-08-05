@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace AccesoDatos.Modelos
 {
-    
+    /// <summary>
+    /// Clase modelo para guardar en la base de datos de las mesas
+    /// </summary>
+
     public class MesaModel
     {
         public string Id { get; set; }

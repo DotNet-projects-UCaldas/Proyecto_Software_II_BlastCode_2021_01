@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AccesoDatos.Modelos
 {
+    /// <summary>
+    /// Clase modelo para guardar en la base de datos de los clientes
+    /// </summary>
     public class ClienteModel : PersonaModel
     {
         public DateTime FechaRegistro { get; set; }
