@@ -18,5 +18,10 @@ namespace AppCore.Dominio
             Puntos = puntos;
             Ventas.Add(venta);
         }
+
+        public Cliente()
+        {
+
+        }
     }
 }

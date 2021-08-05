@@ -1,4 +1,5 @@
 ﻿using AccesoDatos.Modelos;
+using AppCore.Dominio;
 using AppCore.DTOs;
 using AppCore.Mapeadores.Abstract;
 using System;
@@ -8,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace AppCore.Mapeadores
 {
-    public class VentaMapperCore : MapperBase<VentaDTO, VentaModel>
+    public class VentaMapperCore : MapperBase<VentaDTO, Venta>
     {
-        private readonly ClienteMapper _clienteMapper = new ClienteMapper();
-        private readonly ProductoMapper _productoMapper = new ProductoMapper();
+        private readonly ClienteMapperCore _clienteMapper = new ClienteMapperCore();
+        private readonly ProductoMapperCore _productoMapper = new ProductoMapperCore();
         public override VentaModel mapearT1T2(VentaDTO entrada)
         {
             List<ClienteModel> clientes = _clienteMapper.mapearT1T2(entrada.Clientes);
             List<ProductoModel> productos = _productoMapper.mapearT1T2(entrada.Productos);
 
-            return new VentaModel()
+            return new Venta()
             {
                 Id = entrada.Id,
                 Valor = entrada.Valor,

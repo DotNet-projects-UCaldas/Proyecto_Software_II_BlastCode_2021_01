@@ -10,8 +10,8 @@ namespace AppCore.Mapeadores
 {
     public class VentaMapperDatos : MapperBase<VentaDTO, VentaModel>
     {
-        private readonly ClienteMapper _clienteMapper = new ClienteMapper();
-        private readonly ProductoMapper _productoMapper = new ProductoMapper();
+        private readonly ClienteMapperCore _clienteMapper = new ClienteMapperCore();
+        private readonly ProductoMapperCore _productoMapper = new ProductoMapperCore();
         public override VentaModel mapearT1T2(VentaDTO entrada)
         {
             List<ClienteModel> clientes = _clienteMapper.mapearT1T2(entrada.Clientes);
