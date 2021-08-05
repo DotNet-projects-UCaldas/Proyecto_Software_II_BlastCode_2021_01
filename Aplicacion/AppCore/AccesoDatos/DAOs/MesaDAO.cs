@@ -35,5 +35,10 @@ namespace AccesoDatos.DAOs
         {
             return _repoMesas.ListarMesas();
         }
+
+        public MesaModel MesaById(string Id) {
+            MesaModel mesa = _repoMesas.MesaById(Id);
+            return mesa;
+        }
     }
 }

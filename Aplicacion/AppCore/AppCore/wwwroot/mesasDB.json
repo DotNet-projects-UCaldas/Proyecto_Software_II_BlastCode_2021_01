@@ -1,3 +1,32 @@
 [
-
+    {
+        "Id": "0",
+        "NumeroMesa": "1",
+        "Ventas": []
+    }, 
+    {
+        "Id": "1",
+        "NumeroMesa": "2",
+        "Ventas": []
+    }, 
+    {
+        "Id": "2",
+        "NumeroMesa": "3",
+        "Ventas": []
+    }, 
+    {
+        "Id": "3",
+        "NumeroMesa": "4",
+        "Ventas": []
+    }, 
+    {
+        "Id": "4",
+        "NumeroMesa": "5",
+        "Ventas": []
+    }, 
+    {
+        "Id": "5",
+        "NumeroMesa": "6",
+        "Ventas": []
+    }
 ]

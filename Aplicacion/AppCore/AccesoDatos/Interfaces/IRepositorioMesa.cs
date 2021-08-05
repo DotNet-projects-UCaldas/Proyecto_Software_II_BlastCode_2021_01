@@ -13,5 +13,7 @@ namespace AccesoDatos.Interfaces
         public MesaModel EditarMesa(MesaModel mesa);
         public List<MesaModel> ListarMesas();
         public MesaModel EliminarMesa(string Id);
+
+        public MesaModel MesaById(string Id);
     }
 }
