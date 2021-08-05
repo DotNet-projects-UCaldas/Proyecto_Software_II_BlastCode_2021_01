@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AppCore.Mapeadores
 {
-    public class MeseroMapper
+    public class MeseroMapperCore
     {
     }
 }

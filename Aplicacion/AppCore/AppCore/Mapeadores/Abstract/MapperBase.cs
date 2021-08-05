@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AppCore.Mapeadores.Abstract
 {
-    public abstract class MapperMesa<T1, T2>
+    public abstract class MapperBase<T1, T2>
     {
         public abstract T2 mapearT1T2(T1 entrada);
         public abstract T1 mapearT2T1(T2 entrada);

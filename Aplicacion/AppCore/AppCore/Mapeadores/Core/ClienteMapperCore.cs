@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppCore.Mapeadores
 {
-    public class ClienteMapper : MapperCliente<ClienteDTO, ClienteModel>
+    public class ClienteMapper : MapperBase<ClienteDTO, ClienteModel>
     {
         public override ClienteModel mapearT1T2(ClienteDTO entrada)
         {

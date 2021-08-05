@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppCore.Mapeadores
 {
-    public class ProductoMapper : MapperProducto<ProductoDTO, ProductoModel>
+    public class ProductoMapper : MapperBase<ProductoDTO, ProductoModel>
     {
         public override ProductoModel mapearT1T2(ProductoDTO entrada)
         {

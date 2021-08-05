@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppCore.Mapeadores
 {
-    public class VentaMapper : MapperVenta<VentaDTO, VentaModel>
+    public class VentaMapperDatos : MapperBase<VentaDTO, VentaModel>
     {
         private readonly ClienteMapper _clienteMapper = new ClienteMapper();
         private readonly ProductoMapper _productoMapper = new ProductoMapper();
