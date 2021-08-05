@@ -10,18 +10,36 @@ namespace AppCore.Dominio
         public string Id { get; set; }
         public int Valor { get; set; }
         public DateTime Fecha { get; set; }
-        public Cliente Cliente { get; set; }
+        public List<Cliente> Clientes { get; set; }
         public List<Producto> Productos { get; set; }
+        public TipoVenta TipoDeVenta { get; set; }
+        public int NumeroMesa { get; set; }
+        public string Direccion { get; set; }
+        public bool Estado { get; set; } = true;
         public int Propina { get; set; }
-
-        public Venta(int valor, DateTime fecha, Cliente cliente, List<Producto> productos, int propina)
+        public Venta(int valor, DateTime fecha, List<Cliente> clientes, List<Producto> productos,
+            TipoVenta tipoVenta, int numeroMesa, string direccion, bool estado, int propina)
         {
-            Id = Guid.NewGuid().ToString();
             Valor = valor;
             Fecha = fecha;
-            Cliente = cliente;
+            Clientes = clientes;
             Productos = productos;
+            TipoDeVenta = tipoVenta;
+            NumeroMesa = numeroMesa;
+            Direccion = direccion;
+            Estado = estado;
             Propina = propina;
+
+
+        }
+
+        public Venta()
+        {
+        }
+
+        public enum TipoVenta
+        {
+            Mostrador, Mesa, Domicilio
         }
 
     }

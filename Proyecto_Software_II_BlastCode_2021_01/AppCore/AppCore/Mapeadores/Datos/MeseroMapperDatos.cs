@@ -1,5 +1,6 @@
 ﻿using AccesoDatos.Modelos;
 using AppCore.DTOs;
+using AppCore.Dominio;
 using AppCore.Mapeadores.Abstract;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,10 @@ using System.Threading.Tasks;
 
 namespace AppCore.Mapeadores
 {
-    public class MeseroMapper : MapperMesero<MeseroDTO, MeseroModel>
+    public class MeseroMapperDatos : MapperBase<Mesero, MeseroModel>
+        //: MapperMesero<Mesero, MeseroModel>
     {
-        public override MeseroModel mapearT1T2(MeseroDTO entrada)
+        public override MeseroModel mapearT1T2(Mesero entrada)
         {
             return new MeseroModel()
             {
@@ -27,7 +29,7 @@ namespace AppCore.Mapeadores
             };
         }
 
-        public override List<MeseroModel> mapearT1T2(List<MeseroDTO> entrada)
+        public override List<MeseroModel> mapearT1T2(List<Mesero> entrada)
         {
             List<MeseroModel> listaMeseros = new List<MeseroModel>();
             foreach (var mesero in entrada)
@@ -38,9 +40,9 @@ namespace AppCore.Mapeadores
             return listaMeseros;
         }
 
-        public override MeseroDTO mapearT2T1(MeseroModel entrada)
+        public override Mesero mapearT2T1(MeseroModel entrada)
         {
-            return new MeseroDTO()
+            return new Mesero()
             {
                 Id = entrada.Id,
                 Nombre = entrada.Nombre,
@@ -54,9 +56,9 @@ namespace AppCore.Mapeadores
             };
         }
 
-        public override List<MeseroDTO> mapearT2T1(List<MeseroModel> entrada)
+        public override List<Mesero> mapearT2T1(List<MeseroModel> entrada)
         {
-            List<MeseroDTO> listaMeseros = new List<MeseroDTO>();
+            List<Mesero> listaMeseros = new List<Mesero>();
             foreach (var mesero in entrada)
             {
                 listaMeseros.Add(mapearT2T1(mesero));

@@ -25,5 +25,10 @@ namespace AppCore.Dominio
 
         }
 
+        public Persona()
+        {
+
+        }
+
     }
 }

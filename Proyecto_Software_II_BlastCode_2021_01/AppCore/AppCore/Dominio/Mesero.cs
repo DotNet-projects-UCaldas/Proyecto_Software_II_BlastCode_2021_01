@@ -19,5 +19,10 @@ namespace AppCore.Dominio
             FechaSalida = fechaSalida;
             Propina = propina;
         }
+
+        public Mesero()
+        {
+
+        }
     }
 }
