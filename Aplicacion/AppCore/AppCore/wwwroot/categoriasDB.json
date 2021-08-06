@@ -1,0 +1,14 @@
+[
+  {
+    "Id": "123abc",
+    "Nombre": "nnnnn",
+    "Descripcion": "lo que sea",
+    "SubCategorias": [
+      {
+        "Id": "string",
+        "Nombre": "quiero cambiar",
+        "Descripcion": "porque si"
+      }
+    ]
+  }
+]
