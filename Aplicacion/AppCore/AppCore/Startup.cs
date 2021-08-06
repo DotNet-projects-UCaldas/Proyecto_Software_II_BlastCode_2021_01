@@ -3,6 +3,7 @@ using AccesoDatos.Interfaces;
 using AccesoDatos.Repositorios;
 using AppCore.DTOs;
 using AppCore.Mapeadores;
+using AppCore.Mapeadores.Datos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,6 +36,8 @@ namespace AppCore
             services.AddScoped<IRepositorioVenta, VentaDAO>();
             services.AddScoped<VentaMapperCore>();
             services.AddScoped<VentaMapperDatos>();
+            services.AddScoped<ClienteMapperCore>();
+            services.AddScoped<ClienteMapperDatos>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
