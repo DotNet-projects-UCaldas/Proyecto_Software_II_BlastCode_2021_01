@@ -22,6 +22,7 @@ namespace AccesoDatos.DAOs
         {
             List<CategoriaModel> categorias = _repoCategorias.ListarCategorias();
 
+
             return categorias;
         }
     }
