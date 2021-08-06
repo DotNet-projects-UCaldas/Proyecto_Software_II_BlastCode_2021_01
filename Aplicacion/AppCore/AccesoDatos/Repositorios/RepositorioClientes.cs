@@ -55,7 +55,7 @@ namespace AccesoDatos.Repositorios
                 clientes = null;
             }
 
-            if (clientes != null && clientes.Where(v => v.Id == cliente.Id).FirstOrDefault() == null)
+            if (clientes != null && clientes.Where(v => v.Id == cliente.Id).FirstOrDefault() != null)
             {
 
                 clientes[clientes.FindIndex(v => v.Id == cliente.Id)] = cliente;

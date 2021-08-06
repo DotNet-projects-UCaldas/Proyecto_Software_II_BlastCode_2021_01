@@ -12,7 +12,6 @@ namespace AppCore.DTOs
     {
         public DateTime FechaRegistro { get; set; }
         public int Puntos { get; set; }
-
         public ClienteDTO(string id, string nombre, string apellido, string cedula, string telefono, string correo, int puntos)
             : base(id, nombre, apellido, cedula, telefono, correo)
         {

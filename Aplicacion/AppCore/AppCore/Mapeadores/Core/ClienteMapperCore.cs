@@ -24,6 +24,7 @@ namespace AppCore.Mapeadores
                 Cedula = entrada.Cedula,
                 Telefono = entrada.Telefono,
                 Correo = entrada.Correo,
+                FechaRegistro = entrada.FechaRegistro,
                 Puntos = entrada.Puntos,
             };
         }
@@ -49,6 +50,7 @@ namespace AppCore.Mapeadores
                 Cedula = entrada.Cedula,
                 Telefono = entrada.Telefono,
                 Correo = entrada.Correo,
+                FechaRegistro = entrada.FechaRegistro,
                 Puntos = entrada.Puntos,
             };
         }

@@ -21,13 +21,13 @@ namespace AccesoDatos.Repositorios
             List<VentaModel> ventas;
             try
             {
-              ventas = JsonConvert.DeserializeObject<List<VentaModel>>(jsonData);
+                ventas = JsonConvert.DeserializeObject<List<VentaModel>>(jsonData);
             }
             catch (Exception)
             {
                 ventas = null;
             }
-            
+
             if (ventas != null && ventas.Where(v => v.Id == nuevaVenta.Id).FirstOrDefault() == null)
             {
                 ventas.Add(nuevaVenta);

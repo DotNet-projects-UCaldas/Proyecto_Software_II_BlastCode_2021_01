@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "OV1UdrB7JtwFcpBvbf/gOq5AcvvXUNV5AvBw+bdCeftzndlUNDQjgGkTC97FFTDyvh1TTm9Swn8Kvbcj/9INdg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Daniel Cuartas\\source\\repos\\Proyecto_Software_II_BlastCode_2021_01\\Proyecto_Software_II_BlastCode_2021_01\\AppCore\\AccesoDatos\\AccesoDatos.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Daniel Cuartas\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
