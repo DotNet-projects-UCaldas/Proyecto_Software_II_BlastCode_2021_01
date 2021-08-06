@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 namespace AppCore.Excepciones
 {
     /// <summary>
-    /// Clase exception para el manejo de errore en la clase subcategoria
+    /// Clase exception para el manejo de errore en la clase mesero
     /// </summary>
-    public class SubCategoriaException
+    public class MeseroException
     {
     }
 }

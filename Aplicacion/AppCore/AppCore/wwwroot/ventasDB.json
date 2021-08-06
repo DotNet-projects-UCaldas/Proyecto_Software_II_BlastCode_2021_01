@@ -1,7 +1,7 @@
 [
   {
-    "Id": "7557d7e3-52af-4353-9a5c-e0297bd80471",
-    "Valor": 0,
+    "Id": "2fd6cd19-5e59-49b9-abb6-9c69b47cc0ec",
+    "Valor": 500000,
     "Fecha": "2021-07-26T03:58:57.794Z",
     "Clientes": null,
     "Productos": [],
@@ -39,13 +39,53 @@
     "Clientes": [
       {
         "FechaRegistro": "0001-01-01T00:00:00",
-        "Puntos": 0,
-        "Id": "string",
-        "Nombre": "lucas",
-        "Apellido": "string",
-        "Cedula": "string",
-        "Telefono": "string",
-        "Correo": "string"
+        "Puntos": 100,
+        "Id": "7557d7e3-52af-4353-9a5c-e0297bd80798",
+        "Nombre": "Prueba",
+        "Apellido": "Apellido Prueba",
+        "Cedula": "12345678Z",
+        "Telefono": "55555555X",
+        "Correo": "cliente@correo.com"
+      }
+    ],
+    "Productos": [
+      {
+        "Id": "4797d7e3-52af-4353-9a5c-e0297bd80471",
+        "Nombre": "Te Hatsu",
+        "Precio": 7000,
+        "Codigo": "TH02",
+        "Descripcion": "Te Hatsu sabor te negro"
+      }
+    ],
+    "TipoDeVenta": 0,
+    "NumeroMesa": 10,
+    "Direccion": "Carrera 23 43 - 28",
+    "Estado": true
+  },
+  {
+    "Id": "55fec8c0-071d-4392-88cf-118489380023",
+    "Valor": 500000,
+    "Fecha": "2021-07-26T00:00:00.0000Z",
+    "Clientes": [
+      {
+        "FechaRegistro": "0001-01-01T00:00:00",
+        "Puntos": 100,
+        "Id": "7557d7e3-52af-4353-9a5c-e0297bd80798",
+        "Nombre": "Prueba",
+        "Apellido": "Apellido Prueba",
+        "Cedula": "12345678Z",
+        "Telefono": "55555555X",
+        "Correo": "cliente@correo.com"
+      },
+      {
+        "FechaRegistro": "0001-01-01T00:00:00",
+        "Puntos": 100,
+        "Id": "7557d7e3-52af-4353-9a5c-e0297bd80798",
+        "Nombre": "Prueba",
+        "Apellido": "Apellido Prueba",
+        "Cedula": "12345678Z",
+        "Telefono": "55555555X",
+        "Correo": "cliente@correo.com"
       }
     ],
     "Productos": [

@@ -37,6 +37,10 @@ namespace AppCore
              services.AddScoped<SubCategoriaMapperDatos>();
              services.AddScoped<CategoriaMapperCore>();
              services.AddScoped<SubCategoriaMapperCore>();
+            services.AddScoped<IRepositorioCliente, ClienteDAO>();
+            services.AddScoped<IRepositorioVenta, VentaDAO>();
+            services.AddScoped<VentaMapperCore>();
+            services.AddScoped<VentaMapperDatos>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
