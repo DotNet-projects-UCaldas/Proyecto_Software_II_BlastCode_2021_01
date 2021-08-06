@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AppCore.Dominio
 {
+    /// <summary>
+    /// Clase para la lógica del dominio del objeto mesa
+    /// </summary>
     public class Mesa
     {
         public string Id { get; set; }

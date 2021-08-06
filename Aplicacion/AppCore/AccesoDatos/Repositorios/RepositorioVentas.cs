@@ -8,6 +8,9 @@ using System.Text;
 
 namespace AccesoDatos.Repositorios
 {
+    /// <summary>
+    /// Base de datos de ventas
+    /// </summary>
     public class RepositorioVentas
     {
         public VentaModel AgregarVenta(VentaModel nuevaVenta)
@@ -49,7 +52,7 @@ namespace AccesoDatos.Repositorios
                 ventas = null;
             }
 
-            if (ventas != null && ventas.Where(v => v.Id == venta.Id).FirstOrDefault() == null)
+            if (ventas != null && ventas.Where(v => v.Id == venta.Id).FirstOrDefault() != null)
             {
 
                 ventas[ventas.FindIndex(v => v.Id == venta.Id)] = venta;
@@ -100,7 +103,33 @@ namespace AccesoDatos.Repositorios
             if (ventas != null && ventas.Where(v => v.Id == Id).FirstOrDefault() != null)
             {
                 ventaEliminada = ventas.Where(v => v.Id == Id).FirstOrDefault();
+                ventas.Remove(ventaEliminada);
+                string jsonString = JsonConvert.SerializeObject(ventas, Formatting.Indented);
+                File.WriteAllText(rutaDB, jsonString);
                 return ventaEliminada;
+            }
+            else return null;
+        }
+
+        public VentaModel VentaById(string Id)
+        {
+            string rutaDB = "./wwwroot/ventasDB.json";
+            string jsonData = System.IO.File.ReadAllText(rutaDB);
+            VentaModel venta;
+            List<VentaModel> ventas;
+            try
+            {
+                ventas = JsonConvert.DeserializeObject<List<VentaModel>>(jsonData);
+            }
+            catch (Exception)
+            {
+                ventas = null;
+            }
+
+            if (ventas != null && ventas.Where(v => v.Id == Id).FirstOrDefault() != null)
+            {
+                venta = ventas.Where(v => v.Id == Id).FirstOrDefault();
+                return venta;
             }
             else return null;
         }

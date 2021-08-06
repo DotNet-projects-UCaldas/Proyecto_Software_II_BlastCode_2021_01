@@ -8,6 +8,9 @@ using System.Text;
 
 namespace AccesoDatos.Repositorios
 {
+    /// <summary>
+    /// Base de datos de mesas
+    /// </summary>
     public class RepositorioMesas
     {
         private List<MesaModel> mesas;

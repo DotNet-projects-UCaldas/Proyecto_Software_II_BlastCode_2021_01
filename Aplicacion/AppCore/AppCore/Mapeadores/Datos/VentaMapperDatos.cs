@@ -1,6 +1,8 @@
 ﻿using AccesoDatos.Modelos;
+using AppCore.Dominio;
 using AppCore.DTOs;
 using AppCore.Mapeadores.Abstract;
+using AppCore.Mapeadores.Datos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +10,17 @@ using System.Threading.Tasks;
 
 namespace AppCore.Mapeadores
 {
-    public class VentaMapper : MapperVenta<VentaDTO, VentaModel>
+    /// <summary>
+    /// Clase para mapear las ventas del dominio a ventas Modelo de la capa de acceso a datos
+    /// </summary>
+    public class VentaMapperDatos : MapperBase<Venta, VentaModel>
     {
-        private readonly ClienteMapper _clienteMapper = new ClienteMapper();
-        private readonly ProductoMapper _productoMapper = new ProductoMapper();
-        public override VentaModel mapearT1T2(VentaDTO entrada)
+        private readonly ClienteMapperDatos _clienteMapperDatos = new ClienteMapperDatos();
+        private readonly ProductoMapperDatos _productoMapperDatos = new ProductoMapperDatos();
+        public override VentaModel mapearT1T2(Venta entrada)
         {
-            List<ClienteModel> clientes = _clienteMapper.mapearT1T2(entrada.Clientes);
-            List<ProductoModel> productos = _productoMapper.mapearT1T2(entrada.Productos);
+            List<ClienteModel> clientes = _clienteMapperDatos.mapearT1T2(entrada.Clientes);
+            List<ProductoModel> productos = _productoMapperDatos.mapearT1T2(entrada.Productos);
 
             return new VentaModel()
             {
@@ -31,7 +36,7 @@ namespace AppCore.Mapeadores
             };
         }
 
-        public override List<VentaModel> mapearT1T2(List<VentaDTO> entrada)
+        public override List<VentaModel> mapearT1T2(List<Venta> entrada)
         {
             List<VentaModel> listaVentas = new List<VentaModel>();
             foreach (var venta in entrada)
@@ -42,28 +47,28 @@ namespace AppCore.Mapeadores
             return listaVentas;
         }
 
-        public override VentaDTO mapearT2T1(VentaModel entrada)
+        public override Venta mapearT2T1(VentaModel entrada)
         {
-            List<ClienteDTO> clientes = _clienteMapper.mapearT2T1(entrada.Clientes);
-            List<ProductoDTO> productos = _productoMapper.mapearT2T1(entrada.Productos);
+            List<Cliente> clientes = _clienteMapperDatos.mapearT2T1(entrada.Clientes);
+            List<Producto> productos = _productoMapperDatos.mapearT2T1(entrada.Productos);
 
-            return new VentaDTO()
+            return new Venta()
             {
                 Id = entrada.Id,
                 Valor = entrada.Valor,
                 Fecha = entrada.Fecha,
-                Clientes = (List<ClienteDTO>)clientes,
-                Productos = (List<ProductoDTO>)productos,
-                TipoDeVenta = (VentaDTO.TipoVenta)entrada.TipoDeVenta,
+                Clientes = clientes,
+                Productos = productos,
+                TipoDeVenta = (Venta.TipoVenta)entrada.TipoDeVenta,
                 NumeroMesa = entrada.NumeroMesa,
                 Direccion = entrada.Direccion,
                 Estado = entrada.Estado
             };
         }
 
-        public override List<VentaDTO> mapearT2T1(List<VentaModel> entrada)
+        public override List<Venta> mapearT2T1(List<VentaModel> entrada)
         {
-            List<VentaDTO> listaVentas = new List<VentaDTO>();
+            List<Venta> listaVentas = new List<Venta>();
             foreach (var venta in entrada)
             {
                 listaVentas.Add(mapearT2T1(venta));

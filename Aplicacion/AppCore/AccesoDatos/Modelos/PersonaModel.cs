@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AccesoDatos.Modelos
 {
+    /// <summary>
+    /// Clase modelo Padre de la que heredan meseros y clientes
+    /// </summary>
     public class PersonaModel
     {
         public string Id { get; set; }

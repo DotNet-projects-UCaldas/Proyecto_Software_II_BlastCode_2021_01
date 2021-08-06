@@ -5,28 +5,27 @@ using System.Threading.Tasks;
 using AppCore.DTOs;
 using AppCore.Mapeadores.Abstract;
 using AccesoDatos.Modelos;
+using AppCore.Dominio;
 
 namespace AppCore.Mapeadores
 {
-    public class MesaMapper: MapperMesa<MesaDTO, MesaModel>
+    public class MesaMapperCore: MapperBase<MesaDTO, Mesa>
     {
-        private readonly VentaMapper _ventaMapper = new VentaMapper();
 
-        public override MesaModel mapearT1T2(MesaDTO entrada)
+        private readonly VentaMapperCore _ventaMapper = new VentaMapperCore();
+
+        public override Mesa mapearT1T2(MesaDTO entrada)
         {
-            List<VentaModel> ventas = _ventaMapper.mapearT1T2(entrada.Ventas);
+            List<Venta> ventas = _ventaMapper.mapearT1T2(entrada.Ventas);
 
-            return new MesaModel()
-            {
-                Id = entrada.Id,
-                NumeroMesa = entrada.NumeroMesa,
-                Ventas = (List<VentaModel>)ventas
+            return new Mesa(entrada.NumeroMesa, (List<Venta>)ventas) {
+                Id = entrada.Id
             };
         }
 
-        public override List<MesaModel> mapearT1T2(List<MesaDTO> entrada)
+        public override List<Mesa> mapearT1T2(List<MesaDTO> entrada)
         {
-            List<MesaModel> listaMesas = new List<MesaModel>();
+            List<Mesa> listaMesas = new List<Mesa>();
 
             foreach (var mesa in entrada)
             {
@@ -36,7 +35,7 @@ namespace AppCore.Mapeadores
             return listaMesas;
         }
 
-        public override List<MesaDTO> mapearT2T1(List<MesaModel> entrada)
+        public override List<MesaDTO> mapearT2T1(List<Mesa> entrada)
         {
             List<MesaDTO> listaMesas = new List<MesaDTO>();
             foreach (var mesa in entrada)
@@ -48,7 +47,7 @@ namespace AppCore.Mapeadores
         }
 
 
-        public override MesaDTO mapearT2T1(MesaModel entrada) {
+        public override MesaDTO mapearT2T1(Mesa entrada) {
             List<VentaDTO> ventas = _ventaMapper.mapearT2T1(entrada.Ventas);
 
             return new MesaDTO()

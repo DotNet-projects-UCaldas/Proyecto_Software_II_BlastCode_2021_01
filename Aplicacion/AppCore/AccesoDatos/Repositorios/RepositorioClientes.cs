@@ -10,6 +10,9 @@ using System.Text.Json;
 
 namespace AccesoDatos.Repositorios
 {
+    /// <summary>
+    /// Base de datos de clientes
+    /// </summary>
     public class RepositorioClientes
     {
 

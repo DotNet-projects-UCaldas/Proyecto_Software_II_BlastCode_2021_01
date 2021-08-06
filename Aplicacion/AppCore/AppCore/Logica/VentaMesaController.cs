@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using AccesoDatos.Interfaces;
 using AppCore.Mapeadores;
+using AppCore.Mapeadores.Datos;
 using System.Threading.Tasks;
 using AppCore.DTOs;
 using System.Collections.Generic;
@@ -21,15 +22,23 @@ namespace AppCore.Logica
         private IRepositorioVenta _venta;
         private IRepositorioMesa _mesa;
         private IRepositorioCliente _cliente;
-        private VentaMapper _mapVenta;
-        private MesaMapper _mapMesa;
-        private ClienteMapper _mapCliente;
+        private readonly VentaMapperCore _ventaMapperCore;
+        private readonly VentaMapperDatos _ventaMapperDatos;
+        private readonly MesaMapperCore _mesaMapperCore;
+        private readonly MesaMapperDatos _mesaMapperDatos;
+        private readonly ClienteMapperCore _clienteMapperCore;
+        private readonly ClienteMapperDatos _clienteMapperDatos;
 
-        public VentaMesaController(IRepositorioVenta venta, IRepositorioMesa mesa, VentaMapper mapVenta, MesaMapper mapMesa) {
+        public VentaMesaController(IRepositorioVenta venta, IRepositorioMesa mesa, IRepositorioCliente cliente, VentaMapperCore ventaMapperCore, VentaMapperDatos ventaMapperDatos, MesaMapperCore mesaMapperCore, MesaMapperDatos mesaMapperDatos, ClienteMapperCore clienteMapperCore, ClienteMapperDatos clienteMapperDatos) {
             _venta = venta;
             _mesa = mesa;
-            _mapVenta = mapVenta;
-            _mapMesa = mapMesa;
+            _cliente = cliente;
+            _ventaMapperCore = ventaMapperCore;
+            _ventaMapperDatos = ventaMapperDatos;
+            _mesaMapperCore = mesaMapperCore;
+            _mesaMapperDatos = mesaMapperDatos;
+            _clienteMapperCore = clienteMapperCore;
+            _clienteMapperDatos = clienteMapperDatos;
         }
 
         /// <summary>
@@ -41,7 +50,7 @@ namespace AppCore.Logica
         // GET: api/<VentaMesaController>
         [HttpGet]
         public async Task<List<MesaDTO>> GetMesas() {
-            return _mapMesa.mapearT2T1(_mesa.ListarMesas()); ;
+            return _mesaMapperCore.mapearT2T1(_mesaMapperDatos.mapearT2T1(_mesa.ListarMesas())); ;
         }
         
         /// <summary>
@@ -56,7 +65,7 @@ namespace AppCore.Logica
         // GET: api/<VentaMesaController>/5
         [HttpGet("{Id}")]
         public async Task<MesaDTO> GetMesa(string Id) {
-            return _mapMesa.mapearT2T1(_mesa.MesaById(Id));
+            return _mesaMapperCore.mapearT2T1(_mesaMapperDatos.mapearT2T1(_mesa.MesaById(Id)));
         }
 
         /// <summary>
@@ -74,12 +83,12 @@ namespace AppCore.Logica
         // PUT: api/<VentaMesaController>/5
         [HttpPut("{Id}")]
         public async Task<MesaDTO> crearVentaEnMesa([FromBody] VentaDTO venta, string Id) {
-            MesaDTO mesa = _mapMesa.mapearT2T1(_mesa.MesaById(Id));
+            MesaDTO mesa = _mesaMapperCore.mapearT2T1(_mesaMapperDatos.mapearT2T1(_mesa.MesaById(Id)));
 
             if (mesa != null) {
-                venta = _mapVenta.mapearT2T1(_venta.AgregarVenta(_mapVenta.mapearT1T2(venta)));
+                venta = _ventaMapperCore.mapearT2T1(_ventaMapperDatos.mapearT2T1(_venta.AgregarVenta(_ventaMapperDatos.mapearT1T2(_ventaMapperCore.mapearT1T2(venta)))));
                 mesa.Ventas.Add(venta);
-                mesa = _mapMesa.mapearT2T1(_mesa.EditarMesa(_mapMesa.mapearT1T2(mesa)));
+                mesa = _mesaMapperCore.mapearT2T1(_mesaMapperDatos.mapearT2T1(_mesa.EditarMesa(_mesaMapperDatos.mapearT1T2(_mesaMapperCore.mapearT1T2(mesa)))));
             }
 
             return mesa;
@@ -100,12 +109,12 @@ namespace AppCore.Logica
         // PUT: api/<VentaMesaController>/5
         [HttpPut("{Id}")]
         public async Task<VentaDTO> asignarclienteAVenta([FromBody] ClienteDTO cliente, string Id) {
-            VentaDTO venta = _mapVenta.mapearT2T1(_venta.VentaById(Id));
+            VentaDTO venta = _ventaMapperCore.mapearT2T1(_ventaMapperDatos.mapearT2T1(_venta.VentaById(Id)));
 
             if (venta != null) {
-                cliente = _mapCliente.mapearT2T1(_cliente.AgregarCliente(_mapCliente.mapearT1T2(cliente)));
+                cliente = _clienteMapperCore.mapearT2T1(_clienteMapperDatos.mapearT2T1(_cliente.AgregarCliente(_clienteMapperDatos.mapearT1T2(_clienteMapperCore.mapearT1T2(cliente)))));
                 venta.Clientes.Add(cliente);
-                venta = _mapVenta.mapearT2T1(_venta.EditarVenta(_mapVenta.mapearT1T2(venta)));
+                venta = _ventaMapperCore.mapearT2T1(_ventaMapperDatos.mapearT2T1(_venta.EditarVenta(_ventaMapperDatos.mapearT1T2(_ventaMapperCore.mapearT1T2(venta)))));
             }
 
             return venta;

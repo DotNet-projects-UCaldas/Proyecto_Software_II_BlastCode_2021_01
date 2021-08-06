@@ -1,4 +1,5 @@
 ﻿using AccesoDatos.Modelos;
+using AppCore.Dominio;
 using AppCore.DTOs;
 using AppCore.Mapeadores.Abstract;
 using System;
@@ -8,11 +9,14 @@ using System.Threading.Tasks;
 
 namespace AppCore.Mapeadores
 {
-    public class ClienteMapper : MapperCliente<ClienteDTO, ClienteModel>
+    /// <summary>
+    /// Clase para mapear los clientes DTO a clientes del dominio
+    /// </summary>
+    public class ClienteMapperCore : MapperBase<ClienteDTO, Cliente>
     {
-        public override ClienteModel mapearT1T2(ClienteDTO entrada)
+        public override Cliente mapearT1T2(ClienteDTO entrada)
         {
-            return new ClienteModel()
+            return new Cliente()
             {
                 Id = entrada.Id,
                 Nombre = entrada.Nombre,
@@ -24,9 +28,9 @@ namespace AppCore.Mapeadores
             };
         }
 
-        public override List<ClienteModel> mapearT1T2(List<ClienteDTO> entrada)
+        public override List<Cliente> mapearT1T2(List<ClienteDTO> entrada)
         {
-            List<ClienteModel> listaClientes = new List<ClienteModel>();
+            List<Cliente> listaClientes = new List<Cliente>();
             foreach (var cliente in entrada)
             {
                 listaClientes.Add(mapearT1T2(cliente));
@@ -35,7 +39,7 @@ namespace AppCore.Mapeadores
             return listaClientes;
         }
 
-        public override ClienteDTO mapearT2T1(ClienteModel entrada)
+        public override ClienteDTO mapearT2T1(Cliente entrada)
         {
             return new ClienteDTO()
             {
@@ -49,7 +53,7 @@ namespace AppCore.Mapeadores
             };
         }
 
-        public override List<ClienteDTO> mapearT2T1(List<ClienteModel> entrada)
+        public override List<ClienteDTO> mapearT2T1(List<Cliente> entrada)
         {
             List<ClienteDTO> listaClientes = new List<ClienteDTO>();
             foreach (var cliente in entrada)

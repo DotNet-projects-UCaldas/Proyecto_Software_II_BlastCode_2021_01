@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AccesoDatos.Interfaces
 {
+    /// <summary>
+    /// Interfaz para el repositorio de mesas
+    /// </summary>
     public interface IRepositorioMesa
     {
         public MesaModel AgregarMesa(MesaModel nuevaMesa);
