@@ -20,8 +20,10 @@ namespace AppCore.Logica
     {
         private IRepositorioVenta _venta;
         private IRepositorioMesa _mesa;
+        private IRepositorioCliente _cliente;
         private VentaMapper _mapVenta;
         private MesaMapper _mapMesa;
+        private ClienteMapper _mapCliente;
 
         public VentaMesaController(IRepositorioVenta venta, IRepositorioMesa mesa, VentaMapper mapVenta, MesaMapper mapMesa) {
             _venta = venta;
@@ -30,19 +32,18 @@ namespace AppCore.Logica
             _mapMesa = mapMesa;
         }
 
-        // GET: api/<VentaMesaController>
         /// <summary>
         ///     Función encargada de obtener el listado de mesas con sus ventas
         /// </summary>
         /// <returns>
         ///     Las mesas existentes
         /// </returns>
+        // GET: api/<VentaMesaController>
         [HttpGet]
         public async Task<List<MesaDTO>> GetMesas() {
             return _mapMesa.mapearT2T1(_mesa.ListarMesas()); ;
         }
-
-        // GET: api/<VentaMesaController>/5
+        
         /// <summary>
         ///     función encargada de obtener una mesa y sus ventas por su Id
         /// </summary>
@@ -52,6 +53,7 @@ namespace AppCore.Logica
         /// <returns>
         ///     La mesa, si se econtró
         /// </returns>
+        // GET: api/<VentaMesaController>/5
         [HttpGet("{Id}")]
         public async Task<MesaDTO> GetMesa(string Id) {
             return _mapMesa.mapearT2T1(_mesa.MesaById(Id));
@@ -69,38 +71,44 @@ namespace AppCore.Logica
         /// <returns>
         ///     La Mesa a la que se le asignó la venta con los datos actualizados
         /// </returns>
+        // PUT: api/<VentaMesaController>/5
+        [HttpPut("{Id}")]
         public async Task<MesaDTO> crearVentaEnMesa([FromBody] VentaDTO venta, string Id) {
-            return null;
-        }
+            MesaDTO mesa = _mapMesa.mapearT2T1(_mesa.MesaById(Id));
 
-        /*
-        // POST api/<AsignarVentasVClientesController>
-        [HttpPost]
-        public async Task<VentaDTO> Post([FromBody] VentaDTO value)
-        {
-            _repositorioVenta.AgregarVenta(_ventaMapper.mapearT1T2(value));
-            return value;
-        }
-
-        // PUT api/<AsignarVentasVClientesController>
-        [HttpPut]
-        public async Task<VentaDTO> Put([FromBody] VentaDTO value)
-        {
-            VentaDTO ventaEditada = value;
-            if (_repositorioVenta.EditarVenta(_ventaMapper.mapearT1T2(ventaEditada)) != null)
-            {
-                return ventaEditada;
+            if (mesa != null) {
+                venta = _mapVenta.mapearT2T1(_venta.AgregarVenta(_mapVenta.mapearT1T2(venta)));
+                mesa.Ventas.Add(venta);
+                mesa = _mapMesa.mapearT2T1(_mesa.EditarMesa(_mapMesa.mapearT1T2(mesa)));
             }
-            else
-                return null;
-            
+
+            return mesa;
         }
 
-        // DELETE api/<AsignarVentasVClientesController>/5
-        [HttpDelete("{Id}")]
-        public async Task<VentaDTO> Delete(string Id)
-        {
-            return _ventaMapper.mapearT2T1(_repositorioVenta.EliminarVenta(Id));
-        }*/
+        /// <summary>
+        ///     Función encargada de añadir información de un cliente a la venta
+        /// </summary>
+        /// <param name="cliente">
+        ///     Información del cliente
+        /// </param>
+        /// <param name="Id">
+        ///     El id de la venta 
+        /// </param>
+        /// <returns>
+        ///     La venta actualizada
+        /// </returns>
+        // PUT: api/<VentaMesaController>/5
+        [HttpPut("{Id}")]
+        public async Task<VentaDTO> asignarclienteAVenta([FromBody] ClienteDTO cliente, string Id) {
+            VentaDTO venta = _mapVenta.mapearT2T1(_venta.VentaById(Id));
+
+            if (venta != null) {
+                cliente = _mapCliente.mapearT2T1(_cliente.AgregarCliente(_mapCliente.mapearT1T2(cliente)));
+                venta.Clientes.Add(cliente);
+                venta = _mapVenta.mapearT2T1(_venta.EditarVenta(_mapVenta.mapearT1T2(venta)));
+            }
+
+            return venta;
+        }
     }
 }

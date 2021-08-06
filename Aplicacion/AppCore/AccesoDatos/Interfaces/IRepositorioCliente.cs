@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccesoDatos.Repositorios
+namespace AccesoDatos.Interfaces
 {
     public interface IRepositorioCliente
     {

@@ -1,4 +1,5 @@
 ﻿using AccesoDatos.Modelos;
+using AccesoDatos.Interfaces;
 using AccesoDatos.Repositorios;
 using System;
 using System.Collections.Generic;

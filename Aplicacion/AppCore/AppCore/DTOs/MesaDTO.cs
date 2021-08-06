@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+/// <summary>
+///     Clase con la lógica para hacer la transferencia de datos 
+/// </summary>
+/// <remarks>
+///     Autor: Lucas Bohorquez
+///     Versión: 1.0
+/// </remarks>
 namespace AppCore.DTOs
 {
     public class MesaDTO
